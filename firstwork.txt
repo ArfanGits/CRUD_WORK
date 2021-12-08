@@ -1,0 +1,2 @@
+download phpmyadmin "https://www.phpmyadmin.net/"
+save to www > pmid > save a file confing.inc from config.sample.inc 
