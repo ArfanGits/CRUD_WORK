@@ -40,8 +40,8 @@ echo "</pre>";*/
                     <thead>
                     <tr>
                         <th scope="col">Title</th>
-                        <!--<th scope="col">Link</th>
-                        <th scope="col">Promotional Message</th>-->
+                        <th scope="col">Link</th>
+                        <th scope="col">Promotional Message</th>
                         <th scope="col">Action</th>
                     </tr>
                     </thead>
@@ -53,9 +53,15 @@ echo "</pre>";*/
                         <tr>
                             <!-- php echo = '=' same work-->
                             <td><?= $banner['title']?></td>
-                           <!-- <td><?/*= $banner['link']*/?></td>
-                            <td><?/*= $banner['promotional_message']*/?></td>-->
-                            <td>Show | Edit | Delete</td>
+                            <td><?= $banner['link']?></td>
+                            <td><?= $banner['promotional_message']?></td>
+                            <td>
+                                <a href="show.php?id=<?=$banner['id'];?>">Show</a>
+                                |
+                                <a href="edit.php?id=<?=$banner['id'];?>">Edit</a>
+                                |
+                                <a href="delete.php?id=<?=$banner['id'];?>">Delete</a>
+                            </td>
                         </tr>
 
                     <?php

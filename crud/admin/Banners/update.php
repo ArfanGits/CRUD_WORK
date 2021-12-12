@@ -3,6 +3,7 @@
 var_dump($_POST);
 echo "</pre>";*/
 
+$_id = $_POST['id'];
 $_title = $_POST['title'];
 $_link = $_POST['link'];
 $_promotional_message = $_POST['promotional_message'];
@@ -14,19 +15,22 @@ $conn = new PDO("mysql:host=localhost;dbname=ecommerce",
 //set the PDO error mode to exception
 $conn->setAttribute(PDO::ATTR_ERRMODE,
     PDO::ERRMODE_EXCEPTION);
-$query = "INSERT INTO `banner` (`title`,`link`,`promotional_message`) 
-          VALUES (:title, :link, :promotional_message);";
+$query = "UPDATE `banner` SET `title` = :title, 
+                               `link` = :link, 
+                               `promotional_message` = :promotional_message
+          WHERE `banner`.`id` = :id";
 
 $stmt = $conn->prepare($query);
 
-$result = $stmt->execute(array(
-    ':title' => $_title,
-    ':link' => $_link,
-    ':promotional_message' => $_promotional_message
-));
+$stmt->bindParam(':title', $_title);
+$stmt->bindParam(':id', $_id);
+$stmt->bindParam(':link', $_link);
+$stmt->bindParam(':promotional_message', $_promotional_message);
 
-//$result = $stmt->execute();
+$result = $stmt->execute();
 
 var_dump($result);
 
 ?>
+
+

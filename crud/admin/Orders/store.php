@@ -3,9 +3,8 @@
 var_dump($_POST);
 echo "</pre>";*/
 
-$_title = $_POST['title'];
-$_link = $_POST['link'];
-$_promotional_message = $_POST['promotional_message'];
+$_product_id = $_POST['product_id'];
+$_qty = $_POST['qty'];
 //echo $_title;
 
 //Connect to database
@@ -14,15 +13,14 @@ $conn = new PDO("mysql:host=localhost;dbname=ecommerce",
 //set the PDO error mode to exception
 $conn->setAttribute(PDO::ATTR_ERRMODE,
     PDO::ERRMODE_EXCEPTION);
-$query = "INSERT INTO `banner` (`title`,`link`,`promotional_message`) 
-          VALUES (:title, :link, :promotional_message);";
+$query = "INSERT INTO `orders` (`product_id`,`qty`) 
+          VALUES (:product_id, :qty);";
 
 $stmt = $conn->prepare($query);
 
 $result = $stmt->execute(array(
-    ':title' => $_title,
-    ':link' => $_link,
-    ':promotional_message' => $_promotional_message
+    ':product_id' => $_product_id,
+    ':qty' => $_qty
 ));
 
 //$result = $stmt->execute();
