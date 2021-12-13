@@ -3,6 +3,8 @@
 var_dump($_POST);
 echo "</pre>";*/
 
+session_start();
+
 $_id = $_POST['id'];
 $_title = $_POST['title'];
 //echo $_title;
@@ -22,7 +24,15 @@ $stmt->bindParam(':id', $_id);
 
 $result = $stmt->execute();
 
-var_dump($result);
+if ($result){
+    $_SESSION['message'] = "Product is updated successfully";
+}else{
+    $_SESSION['message'] = "Product is not updated";
+}
+
+//var_dump($result);
+
+header("location:index.php");
 
 ?>
 

@@ -5,26 +5,27 @@ echo "</pre>";*/
 
 session_start();
 
-$_title = $_POST['title'];
-$_link = $_POST['link'];
-$_promotional_message = $_POST['promotional_message'];
+$_product_id = $_POST['product_id'];
+$_product_title = $_POST['product_title'];
+$_qty = $_POST['qty'];
 //echo $_title;
 
 //Connect to database
-$conn = new PDO("mysql:host=localhost;dbname=ecommerce",
+$conn = new PDO("mysql:host=localhost;dbproduct_id=ecommerce",
     'root', '');
 //set the PDO error mode to exception
 $conn->setAttribute(PDO::ATTR_ERRMODE,
     PDO::ERRMODE_EXCEPTION);
-$query = "INSERT INTO `banner` (`title`,`link`,`promotional_message`) 
-          VALUES (:title, :link, :promotional_message);";
+$query = "INSERT INTO `cart`(`product_id`, `product_title`, `qty`)
+            VALUES (:product_id, :product_title, :qty);";
+
 
 $stmt = $conn->prepare($query);
 
 $result = $stmt->execute(array(
-    ':title' => $_title,
-    ':link' => $_link,
-    ':promotional_message' => $_promotional_message
+    ':product_id' => $_product_id,
+    ':product_title' => $_product_title,
+    ':qty' => $_qty
 ));
 
 //$result = $stmt->execute();
@@ -33,9 +34,9 @@ $result = $stmt->execute(array(
 
 
 if ($result){
-    $_SESSION['message'] = "Banner is added successfully";
+    $_SESSION['message'] = "Cart is added successfully";
 }else{
-    $_SESSION['message'] = "Banner is not added";
+    $_SESSION['message'] = "Cart is not added";
 }
 
 // this is for the location set to store.php to main home page index.php

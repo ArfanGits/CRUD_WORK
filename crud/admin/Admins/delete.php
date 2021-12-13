@@ -11,7 +11,7 @@ $conn = new PDO("mysql:host=localhost;dbname=ecommerce",
 $conn->setAttribute(PDO::ATTR_ERRMODE,
     PDO::ERRMODE_EXCEPTION);
 
-$query = "DELETE FROM `banner` WHERE `banner`.`id` = :id";
+$query = "DELETE FROM `admin` WHERE `admin`.`id` = :id";
 
 $stmt = $conn->prepare($query);
 
@@ -22,9 +22,9 @@ $result = $stmt->execute();
 //var_dump($result);
 
 if ($result){
-    $_SESSION['message'] = "Banner is deleted successfully";
+    $_SESSION['message'] = "Admin is deleted successfully";
 }else{
-    $_SESSION['message'] = "Banner is not deleted";
+    $_SESSION['message'] = "Admin is not deleted";
 }
 
 // this is for the location set to store.php to main home page index.php

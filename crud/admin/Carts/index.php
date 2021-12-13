@@ -10,13 +10,13 @@ $conn->setAttribute(PDO::ATTR_ERRMODE,
     PDO::ERRMODE_EXCEPTION);
 
 
-$query = "SELECT * FROM `banner`";
+$query = "SELECT * FROM `cart`";
 
 $stmt = $conn->prepare($query);
 
 $result = $stmt->execute();
 
-$banners = $stmt->fetchAll();
+$carts = $stmt->fetchAll();
 
 /*echo "<pre>";
 print_r($products);
@@ -29,7 +29,7 @@ echo "</pre>";*/
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <title>Banner</title>
+    <title>Cart</title>
 </head>
 <body>
 <section>
@@ -42,11 +42,11 @@ echo "</pre>";*/
                     $_SESSION['message'] = "";
                     ?>
                 </div>
-                <h1 class="text-center mb-4">Banners</h1>
+                <h1 class="text-center mb-4">Cart</h1>
                 <ul class="nav justify-content-center fs-3">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="create.php">
-                            Add an item
+                            Add to Cart
                         </a>
                     </li>
                     <li class="nav-item">
@@ -56,24 +56,23 @@ echo "</pre>";*/
                 <table class="table">
                     <thead>
                     <tr>
-                        <th scope="col">Title</th>
+                        <th scope="col">Product Title</th>
                         <th scope="col">Action</th>
                     </tr>
                     </thead>
                     <tbody>
                     <?php
-                    if (count($banners) > 0):
-                        foreach ($banners as $banner):
+                    if (count($carts) > 0):
+                        foreach ($carts as $cart):
                             ?>
-
                             <tr>
                                 <!-- php echo = '=' same work-->
-                                <td><?= $banner['title']?></td>
-                                <td><a href="show.php?id=<?=$banner['id'];?>">Show</a>
+                                <td><?= $cart['product_title']?></td>
+                                <td><a href="show.php?id=<?=$cart['id'];?>">Show</a>
                                     |
-                                    <a href="edit.php?id=<?=$banner['id'];?>">Edit</a>
+                                    <a href="edit.php?id=<?=$cart['id'];?>">Edit</a>
                                     |
-                                    <a href="delete.php?id=<?=$banner['id'];?>"
+                                    <a href="delete.php?id=<?=$cart['id'];?>"
                                        onclick="return confirm('Are you sure you want to delete?')">
                                         Delete
                                     </a>

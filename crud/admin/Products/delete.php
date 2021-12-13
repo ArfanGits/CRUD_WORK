@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 $_id = $_GET['id'];
 
 //Connect to database
@@ -10,14 +12,18 @@ $conn->setAttribute(PDO::ATTR_ERRMODE,
     PDO::ERRMODE_EXCEPTION);
 
 $query = "DELETE FROM `product` WHERE `product`.`id` = :id";
-
 $stmt = $conn->prepare($query);
-
 $stmt->bindParam(':id', $_id);
-
 $result = $stmt->execute();
 
-var_dump($result);
+//var_dump($result);
 
+if ($result){
+    $_SESSION['message'] = "Product is deleted successfully";
+}else{
+    $_SESSION['message'] = "Product is not deleted";
+}
+
+header("location:index.php");
 
 ?>

@@ -2,6 +2,7 @@
 /*echo "<pre>";
 var_dump($_POST);
 echo "</pre>";*/
+session_start();
 
 $_id = $_POST['id'];
 $_title = $_POST['title'];
@@ -29,8 +30,16 @@ $stmt->bindParam(':promotional_message', $_promotional_message);
 
 $result = $stmt->execute();
 
-var_dump($result);
+//var_dump($result);
 
+if ($result){
+    $_SESSION['message'] = "Banner is updated successfully";
+}else{
+    $_SESSION['message'] = "Banner is not updated";
+}
+
+// this is for the location set to store.php to main home page index.php
+header("location:index.php");
 ?>
 
 
