@@ -5,6 +5,20 @@ echo "</pre>";*/
 
 session_start();
 
+$approot = $_SERVER['DOCUMENT_ROOT'].'/batch1-arfan/crud/';
+
+// Working with image
+$target = $_FILES['picture']['tmp_name'];
+$destination = $approot.'uploads/' .$_FILES['picture']['name'];
+
+$isFileMoved = move_uploaded_file($target, $destination);
+if ($isFileMoved){
+    $_picture = $_FILES['picture']['name'];
+}
+else{
+    $_picture = null;
+}
+
 $_title = $_POST['title'];
 //echo $_title;
 
@@ -14,10 +28,12 @@ $conn = new PDO("mysql:host=localhost;dbname=ecommerce",
 //set the PDO error mode to exception
 $conn->setAttribute(PDO::ATTR_ERRMODE,
     PDO::ERRMODE_EXCEPTION);
-$query = "INSERT INTO `product` (`title`) VALUES (:title);";
+$query = "INSERT INTO `product` (`title`,`picture`) 
+          VALUES (:title, :picture);";
 
 $stmt = $conn->prepare($query);
 $stmt->bindParam(':title', $_title);
+$stmt->bindParam(':picture', $_picture);
 $result = $stmt->execute();
 
 //var_dump($result);

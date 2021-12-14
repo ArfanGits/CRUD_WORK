@@ -1,5 +1,7 @@
 <?php
 
+$webroot = 'http://localhost/batch1-arfan/crud/';
+
 $_id = $_GET['id'];
 
 //Connect to database
@@ -56,6 +58,13 @@ echo "</pre>";*/
                 <dl class="row">
                     <dt class="col-md-6">Promotional Message:</dt>
                     <dd class="col-md-6"><?= $banner['promotional_message'];?></dd>
+                </dl>
+                <dl class="row">
+                    <dt class="col-md-2">Picture:</dt>
+                    <dd class="col-md-10">
+                        <?= $banner['picture'];?>
+                        <img src="<?=$webroot;?>uploads/<?=$banner['picture'];?>">
+                    </dd>
                 </dl>
             </div>
         </div>
