@@ -3,6 +3,23 @@
 var_dump($_POST);
 echo "</pre>";*/
 session_start();
+$approot = $_SERVER['DOCUMENT_ROOT'].'/batch1-arfan/crud/';
+
+if($_FILES['picture']['name'] != ''){
+    // Working with image
+    $target = $_FILES['picture']['tmp_name'];
+    $destination = $approot.'uploads/' .$_FILES['picture']['name'];
+
+    $isFileMoved = move_uploaded_file($target, $destination);
+    if ($isFileMoved){
+        $_picture = $_FILES['picture']['name'];
+    }
+    else{
+        $_picture = null;
+    }
+}else{
+    $_picture = $_POST['old_picture'];
+}
 
 $_id = $_POST['id'];
 $_title = $_POST['title'];
@@ -18,7 +35,8 @@ $conn->setAttribute(PDO::ATTR_ERRMODE,
     PDO::ERRMODE_EXCEPTION);
 $query = "UPDATE `banner` SET `title` = :title, 
                                `link` = :link, 
-                               `promotional_message` = :promotional_message
+                               `promotional_message` = :promotional_message,
+                               `picture` = :picture
           WHERE `banner`.`id` = :id";
 
 $stmt = $conn->prepare($query);
@@ -27,6 +45,7 @@ $stmt->bindParam(':title', $_title);
 $stmt->bindParam(':id', $_id);
 $stmt->bindParam(':link', $_link);
 $stmt->bindParam(':promotional_message', $_promotional_message);
+$stmt->bindParam(':picture', $_picture);
 
 $result = $stmt->execute();
 

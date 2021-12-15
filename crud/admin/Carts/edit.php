@@ -1,5 +1,7 @@
 <?php
 
+$webroot = 'http://localhost/batch1-arfan/crud/';
+
 $_id = $_GET['id'];
 
 //Connect to database
@@ -87,6 +89,21 @@ echo "</pre>";*/
                                 value="<?=$cart['qty']?>"
                             >
                         </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="inputFile" class="col-md-3 col-form-label">Picture:</label>
+                        <div class="col-md-9">
+                            <input
+                                    type="file"
+                                    class="form-control"
+                                    id="inputFile"
+                                    name="picture"
+                                    value="<?=$cart['picture'];?>"
+                            >
+                        </div>
+                        <img src="<?=$webroot;?>uploads/<?=$cart['picture'];                       ?>">
+                        <input type="hidden" name="old_picture"
+                               value="<?=$cart['picture'];?>">
                     </div>
                     <div class="mb-3 row">
                         <div class="col-auto">
