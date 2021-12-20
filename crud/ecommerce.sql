@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 20, 2021 at 01:34 PM
--- Server version: 5.7.24
--- PHP Version: 7.2.19
+-- Generation Time: Dec 20, 2021 at 11:13 PM
+-- Server version: 5.7.33
+-- PHP Version: 7.4.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -107,7 +107,9 @@ INSERT INTO `cart` (`id`, `product_id`, `product_title`, `qty`, `picture`, `unit
 (5, 123563, 'laptop', 1236, 'bottom-banner.jpg', 0, 0),
 (7, 1234, 'Computer1', 5, 'b-logo1-130x50.png', 0, 0),
 (8, 156, 'Just chair', 10, 'custom-img2.jpg', 0, 0),
-(9, 156423, 'Computer', 12, 'product6-700x850.jpg', 0, 0);
+(9, 156423, 'Computer', 12, 'product6-700x850.jpg', 0, 0),
+(10, 123, 'chair', 50, 'product1-700x850.jpg', 500, 25000),
+(11, 555, 'table', 10, 'menu-shoes.png', 500, 5000);
 
 -- --------------------------------------------------------
 
@@ -142,17 +144,23 @@ CREATE TABLE `contact` (
   `id` int(11) NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
-  `subject` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+  `subject` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `comment` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT '0',
+  `date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `contact`
 --
 
-INSERT INTO `contact` (`id`, `name`, `email`, `subject`) VALUES
-(2, 'sarfan', 'khan.safan027@gmail.com', 'Computer Science'),
-(3, 'Istiaq', 'istiaq60@hotmail.com', 'Laravel'),
-(4, 'sumon', 'sumon456@gmail.com', 'web deign');
+INSERT INTO `contact` (`id`, `name`, `email`, `subject`, `comment`, `status`, `date`) VALUES
+(2, 'sarfan', 'khan.safan027@gmail.com', 'Computer Science', '', 0, '2021-12-20'),
+(4, 'sumon', 'sumon456@gmail.com', 'web deign', '', 0, '2021-12-20'),
+(5, 'asasa', 'hiyat94186@ailiking.com', 'ffefe', 'fefe', 1, '2021-12-20'),
+(6, 'new', 'sawaf12@gmail.com', 'jet', 'new', 1, '2021-12-20'),
+(7, 'ff', 'gagan.agg5@gmail.com', 'efa', 'fefe', 1, '2021-12-10'),
+(8, 'changes test1', 'test@gmail.com', 'Gmail', 'somesome', 0, '2018-02-14');
 
 -- --------------------------------------------------------
 
@@ -271,7 +279,7 @@ ALTER TABLE `banner`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `category`
@@ -283,7 +291,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `contact`
 --
 ALTER TABLE `contact`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `orders`
