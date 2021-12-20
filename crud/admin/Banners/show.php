@@ -52,14 +52,6 @@ echo "</pre>";*/
                     <dd class="col-md-6"><?= $banner['title'];?></dd>
                 </dl>
                 <dl class="row">
-                    <dt class="col-md-3">Is Active</dt>
-                    <dd class="col-md-9">
-                        <?php
-                        echo $banner['is_active'] ? 'Activated' : 'Deactivated';
-                        ?>
-                    </dd>
-                </dl>
-                <dl class="row">
                     <dt class="col-md-2">Created AT:</dt>
                     <dd class="col-md-10"><?= $banner['created_at'];?></dd>
                 </dl>
@@ -74,6 +66,25 @@ echo "</pre>";*/
                 <dl class="row">
                     <dt class="col-md-6">Promotional Message:</dt>
                     <dd class="col-md-6"><?= $banner['promotional_message'];?></dd>
+                </dl>
+                <dl class="row">
+                    <dt class="col-md-6">HTML Banner:</dt>
+                    <dd class="col-md-6"><?= $banner['html_banner'];?></dd>
+                </dl>
+                <dl class="row">
+                    <dt class="col-md-3">Is Active</dt>
+                    <dd class="col-md-9">
+                        <?php
+                        echo $banner['is_active'] ? 'Activated' : 'Deactivated';
+                        ?>
+                    </dd>
+                </dl><dl class="row">
+                    <dt class="col-md-3">Is Draft</dt>
+                    <dd class="col-md-9">
+                        <?php
+                        echo $banner['is_draft'] ? 'Drafted' : 'Not Drafted';
+                        ?>
+                    </dd>
                 </dl>
                 <dl class="row">
                     <dt class="col-md-2">Picture:</dt>

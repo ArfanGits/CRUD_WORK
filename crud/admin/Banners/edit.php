@@ -66,24 +66,6 @@ echo "</pre>";*/
                             >
                         </div>
                     </div>
-                    <div class="mb-3 row form-check">
-                        <div class="col-md-9">
-                            <?php
-                            if ($banner['is_active'] == 0) {
-                                ?>
-                                <input type="checkbox" class="form-check-input" id="inputIsActive" name="is_active" value="1">
-                                <?php
-                            } else {
-                                ?>
-                                <input type="checkbox" class="form-check-input" id="inputIsActive" name="is_active" value="1" checked>
-                                <?php
-                            }
-                            ?>
-                        </div>
-                        <label for="inputIsActive" class="col-md-3  form-check-label">
-                            Is Active:
-                        </label>
-                    </div>
 
                     <div class="mb-3 row">
                         <label for="inputTitle" class="col-md-3 col-form-label">Link</label>
@@ -108,6 +90,76 @@ echo "</pre>";*/
                                 value="<?=$banner['promotional_message']?>"
                             >
                         </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="inputHTML_banner" class="col-md-3 col-form-label">HTML Banner:</label>
+                        <div class="col-md-9">
+                            <input
+                                    type="text"
+                                    class="form-control"
+                                    id="inputHTML_banner"
+                                    name="html_banner"
+                                    value="<?=$banner['html_banner']?>"
+                            >
+                        </div>
+                    </div>
+                    <div class="mb-3 row form-check">
+                        <div class="col-md-9">
+                            <?php
+                            if ($banner['is_active'] == 0) {
+                                ?>
+                                <input type="checkbox"
+                                       class="form-check-input"
+                                       id="inputIsActive"
+                                       name="is_active"
+                                       value="1"
+                                >
+                                <?php
+                            } else {
+                                ?>
+                                <input type="checkbox"
+                                       class="form-check-input"
+                                       id="inputIsActive"
+                                       name="is_active"
+                                       value="1"
+                                       checked
+                                >
+                                <?php
+                            }
+                            ?>
+                        </div>
+                        <label for="inputIsActive" class="col-md-3  form-check-label">
+                            Is Active:
+                        </label>
+                    </div>
+                    <div class="mb-3 row form-check">
+                        <div class="col-md-9">
+                            <?php
+                            if ($banner['is_draft'] == 0) {
+                                ?>
+                                <input type="checkbox"
+                                       class="form-check-input"
+                                       id="inputIsDraft"
+                                       name="is_draft"
+                                       value="1"
+                                >
+                                <?php
+                            } else {
+                                ?>
+                                <input type="checkbox"
+                                       class="form-check-input"
+                                       id="inputIsDraft"
+                                       name="is_draft"
+                                       value="1"
+                                       checked
+                                >
+                                <?php
+                            }
+                            ?>
+                        </div>
+                        <label for="inputIsDraft" class="col-md-3  form-check-label">
+                            Is Draft:
+                        </label>
                     </div>
                     <div class="mb-3 row">
                         <label for="inputFile" class="col-md-3         col-form-label">Picture:</label>

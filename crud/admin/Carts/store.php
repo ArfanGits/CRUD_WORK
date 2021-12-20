@@ -22,6 +22,10 @@ else{
 $_product_id = $_POST['product_id'];
 $_product_title = $_POST['product_title'];
 $_qty = $_POST['qty'];
+$_unite_price = $_POST['unite_price'];
+
+$_total_price = ($_unite_price*$_qty);
+
 //echo $_title;
 
 //Connect to database
@@ -30,8 +34,18 @@ $conn = new PDO("mysql:host=localhost;dbname=ecommerce",
 //set the PDO error mode to exception
 $conn->setAttribute(PDO::ATTR_ERRMODE,
     PDO::ERRMODE_EXCEPTION);
-$query = "INSERT INTO `cart` (`product_id`,`product_title`,`qty`,`picture`) 
-          VALUES (:product_id, :product_title, :qty, :picture);";
+$query = "INSERT INTO `cart` (`product_id`,
+                              `product_title`,
+                              `qty`,
+                              `unite_price`,
+                              `total_price`,
+                              `picture`) 
+          VALUES (:product_id, 
+                  :product_title, 
+                  :qty,
+                  :unite_price, 
+                  :total_price, 
+                  :picture);";
 
 $stmt = $conn->prepare($query);
 
@@ -39,6 +53,8 @@ $result = $stmt->execute(array(
     ':product_id' => $_product_id,
     ':product_title' => $_product_title,
     ':qty' => $_qty,
+    ':unite_price' => $_unite_price,
+    ':total_price' => $_total_price,
     ':picture' => $_picture
 ));
 

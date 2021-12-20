@@ -57,14 +57,27 @@
                         <label for="inputTitle" class="col-md-3 col-form-label">Quantity:</label>
                         <div class="col-md-9">
                             <input
-                                type="text"
-                                class="form-control"
-                                id="inputQty"
-                                name="qty"
-                                value=""
+                                    type="text"
+                                    class="form-control"
+                                    id="inputQty"
+                                    name="qty"
+                                    value=""
                             >
                         </div>
                     </div>
+                    <div class="mb-3 row">
+                        <label for="inputUnit_price" class="col-md-3 col-form-label">Unite price:</label>
+                        <div class="col-md-9">
+                            <input
+                                    type="number"
+                                    class="form-control"
+                                    id="inputUnit_price"
+                                    name="unite_price"
+                                    value=""
+                            >
+                        </div>
+                    </div>
+
                     <div class="mb-3 row">
                         <label for="inputFile" class="col-md-3 col-form-label">Picture:</label>
                         <div class="col-md-9">

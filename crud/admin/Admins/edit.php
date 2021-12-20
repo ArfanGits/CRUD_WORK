@@ -89,6 +89,18 @@ echo "</pre>";*/
                         </div>
                     </div>
                     <div class="mb-3 row">
+                        <label for="inputPhone" class="col-md-3 col-form-label">Phone:</label>
+                        <div class="col-md-9">
+                            <input
+                                    type="text"
+                                    class="form-control"
+                                    id="inputPhone"
+                                    name="phone"
+                                    value="<?=$admin['phone']?>"
+                            >
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
                         <div class="col-auto">
                             <button type="submit" class="btn btn-primary mb-3">Submit</button>
                         </div>

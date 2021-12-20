@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 15, 2021 at 10:51 AM
+-- Generation Time: Dec 20, 2021 at 01:34 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.2.19
 
@@ -31,17 +31,22 @@ CREATE TABLE `admin` (
   `id` int(11) NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `password` varchar(50) COLLATE utf8_unicode_ci NOT NULL
+  `password` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `phone` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modified_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`id`, `name`, `email`, `password`) VALUES
-(1, 'rohan', 'rohan77@gmail.com', '123456'),
-(3, 'ozil', 'ozil10@gmail.com', '786123'),
-(4, 'asd', 'dfg@gmail.com', '123');
+INSERT INTO `admin` (`id`, `name`, `email`, `password`, `phone`, `created_at`, `modified_at`) VALUES
+(1, 'rohan', 'rohan77@gmail.com', '123456', '', '2021-12-20 11:02:42', '2021-12-20 11:02:42'),
+(3, 'ozil', 'ozil10@gmail.com', '786123', '', '2021-12-20 11:02:42', '2021-12-20 11:02:42'),
+(4, 'asd', 'dfg@gmail.com', '123', '', '2021-12-20 11:02:42', '2021-12-20 11:02:42'),
+(5, 'newisti', 'ryan8@yahoo.com', '123456', '', '2021-12-20 11:09:04', '2021-12-20 11:09:29'),
+(6, 'test', 'cd@gmail.com', '123456', '01822266448', '2021-12-20 01:02:40', '2021-12-20 13:02:40');
 
 -- --------------------------------------------------------
 
@@ -54,23 +59,27 @@ CREATE TABLE `banner` (
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `link` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `promotional_message` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `picture` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
+  `html_banner` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `is_draft` tinyint(4) NOT NULL DEFAULT '0',
+  `picture` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modified_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `is_active` tinyint(4) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `banner`
 --
 
-INSERT INTO `banner` (`id`, `title`, `link`, `promotional_message`, `picture`) VALUES
-(1, 'FC Hatchers', 'www.hacthers.com', 'Editing Done', NULL),
-(11, 'Book1', 'Bookers.com', 'Same Book All Overs', NULL),
-(12, 'Book1', 'Book.com', 'book is here.', NULL),
-(13, 'test', 'test.com', 'Some lines', 'custom-img3.jpg'),
-(14, 'sfs', 'sef', 'fgf', 'custom-img4.jpg'),
-(15, '', '', '', 'menu-furniutre.png'),
-(16, 'uyyi', 'uy.com', 'Editing Done', 'custom-img2.jpg'),
-(17, 'new', 's.ocm', 'jjja', 'menu-shoes.png'),
-(18, 'Title changed', 'new.com', 'image changed', 'product1-700x850.jpg');
+INSERT INTO `banner` (`id`, `title`, `link`, `promotional_message`, `html_banner`, `is_draft`, `picture`, `created_at`, `modified_at`, `is_active`) VALUES
+(14, 'sfs', 'sef', 'fgf', '', 0, 'custom-img4.jpg', '2021-12-20 10:54:42', '2021-12-20 10:54:42', 0),
+(16, 'uyyi', 'uy.com', 'Editing Done', '', 0, 'custom-img2.jpg', '2021-12-20 10:54:42', '2021-12-20 10:54:42', 0),
+(17, 'new', 's.ocm', 'jjja', '', 0, 'menu-shoes.png', '2021-12-20 10:54:42', '2021-12-20 10:54:42', 0),
+(18, 'Title changed', 'new.com', 'image changed', '', 0, 'product1-700x850.jpg', '2021-12-20 10:54:42', '2021-12-20 10:54:42', 0),
+(19, 'Isti GG', 'istisqr.com', 'hdhhdhd', '', 0, 'custom-img1.jpg', '2021-12-20 10:54:42', '2021-12-20 10:54:42', 0),
+(20, 'test1', 'dsgfadf', 'fef', '', 0, 'custom-img3.jpg', '2021-12-20 11:00:34', '2021-12-20 12:51:09', 1),
+(21, 'jhjhjh', 'dsfgf.com', 'Editing Donebbvbvcbb', '', 0, 'list.svg', '2021-12-20 12:11:19', '2021-12-20 12:11:47', 0),
+(22, 'new test edit', 'test22.com', 'newfrom', 'new html', 0, 'custom-img2.jpg', '2021-12-20 12:36:11', '2021-12-20 12:51:02', 1);
 
 -- --------------------------------------------------------
 
@@ -83,19 +92,22 @@ CREATE TABLE `cart` (
   `product_id` int(11) NOT NULL,
   `product_title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `qty` int(11) NOT NULL,
-  `picture` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
+  `picture` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `unite_price` int(11) NOT NULL,
+  `total_price` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `cart`
 --
 
-INSERT INTO `cart` (`id`, `product_id`, `product_title`, `qty`, `picture`) VALUES
-(2, 1564, 'Computer', 2, NULL),
-(4, 412, 'Shoes', 100, 'menu-shoes.png'),
-(5, 123563, 'laptop', 1236, 'bottom-banner.jpg'),
-(7, 1234, 'Computer1', 5, 'b-logo1-130x50.png'),
-(8, 156, 'Just chair', 10, 'custom-img2.jpg');
+INSERT INTO `cart` (`id`, `product_id`, `product_title`, `qty`, `picture`, `unite_price`, `total_price`) VALUES
+(2, 1564, 'Computer', 2, NULL, 0, 0),
+(4, 412, 'Shoes', 100, 'menu-shoes.png', 0, 0),
+(5, 123563, 'laptop', 1236, 'bottom-banner.jpg', 0, 0),
+(7, 1234, 'Computer1', 5, 'b-logo1-130x50.png', 0, 0),
+(8, 156, 'Just chair', 10, 'custom-img2.jpg', 0, 0),
+(9, 156423, 'Computer', 12, 'product6-700x850.jpg', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -106,16 +118,19 @@ INSERT INTO `cart` (`id`, `product_id`, `product_title`, `qty`, `picture`) VALUE
 CREATE TABLE `category` (
   `id` int(11) NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `link` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+  `link` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modified_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `category`
 --
 
-INSERT INTO `category` (`id`, `name`, `link`) VALUES
-(3, 'sarfan', 'sarfan.com'),
-(4, 'sumon', 'sumon.com');
+INSERT INTO `category` (`id`, `name`, `link`, `created_at`, `modified_at`) VALUES
+(3, 'sarfan', 'sarfan.com', '2021-12-20 11:10:27', '2021-12-20 11:10:27'),
+(4, 'sumon', 'sumon.com', '2021-12-20 11:10:27', '2021-12-20 11:10:27'),
+(5, 'Arfan', 'html.com', '2021-12-20 11:12:41', '2021-12-20 11:13:34');
 
 -- --------------------------------------------------------
 
@@ -169,23 +184,26 @@ INSERT INTO `orders` (`id`, `product_id`, `qty`) VALUES
 CREATE TABLE `product` (
   `id` int(11) NOT NULL,
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `picture` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modified_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `picture` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `is_active` tinyint(4) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`id`, `title`, `picture`) VALUES
-(26, 'Product 23', NULL),
-(27, 'Product 3', NULL),
-(28, 'Product 4', NULL),
-(29, 'Custom Picture1 ', NULL),
-(30, 'Test1', NULL),
-(31, 'Test2', 'payment-2.png'),
-(32, 'TestApproot', 'custom-img4.jpg'),
-(33, 'lamp', 'product5-700x850.jpg'),
-(34, 'farija', 'b-logo2-130x50.png');
+INSERT INTO `product` (`id`, `title`, `created_at`, `modified_at`, `picture`, `is_active`) VALUES
+(30, 'Test1', '2021-12-20 09:49:49', '2021-12-20 10:11:31', NULL, 0),
+(31, 'Test2', '2021-12-20 09:49:49', '2021-12-20 10:11:31', 'payment-2.png', 0),
+(32, 'TestApproot', '2021-12-20 09:49:49', '2021-12-20 10:11:31', 'custom-img4.jpg', 0),
+(33, 'lamp', '2021-12-20 09:49:49', '2021-12-20 10:11:31', 'product5-700x850.jpg', 0),
+(34, 'farija', '2021-12-20 09:49:49', '2021-12-20 10:11:31', 'b-logo2-130x50.png', 0),
+(35, 'Istiaq GG', '2021-12-20 09:49:49', '2021-12-20 10:11:31', 'product24-700x850.jpg', 1),
+(36, 'Watch Time', '2021-12-20 03:59:14', '2021-12-20 10:11:31', 'custom-img4.jpg', 0),
+(37, 'newOne', '2021-12-20 10:04:10', '2021-12-20 10:15:29', 'newsletter-img.jpg', 1),
+(38, '22new', '2021-12-20 10:23:53', '2021-12-20 10:24:16', 'product2-700x850.jpg', 0);
 
 --
 -- Indexes for dumped tables
@@ -241,25 +259,25 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `banner`
 --
 ALTER TABLE `banner`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `contact`
@@ -277,7 +295,7 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
