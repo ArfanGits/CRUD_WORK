@@ -41,6 +41,14 @@
                              >
                          </div>
                      </div>
+                     <div class="mb-3 row form-check">
+                         <div class="col-md-9">
+                             <input type="checkbox" class="form-check-input" id="inputIsActive" name="is_active" value="1">
+                         </div>
+                         <label for="inputIsActive" class="col-md-3  form-check-label">
+                             Is Active:
+                         </label>
+                     </div>
                      <div class="mb-3 row">
                         <label for="inputTitle" class="col-md-3 col-form-label">Link:</label>
                          <div class="col-md-9">

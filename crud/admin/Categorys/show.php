@@ -53,6 +53,14 @@ echo "</pre>";*/
                     <dt class="col-md-6">Link:</dt>
                     <dd class="col-md-6"><?= $category['link'];?></dd>
                 </dl>
+                <dl class="row">
+                    <dt class="col-md-2">Created AT:</dt>
+                    <dd class="col-md-10"><?= $category['created_at'];?></dd>
+                </dl>
+                <dl class="row">
+                    <dt class="col-md-2">Modified AT:</dt>
+                    <dd class="col-md-10"><?= $category['modified_at'];?></dd>
+                </dl>
             </div>
         </div>
     </div>

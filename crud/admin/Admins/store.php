@@ -8,6 +8,8 @@ session_start();
 $_name = $_POST['name'];
 $_email = $_POST['email'];
 $_password = $_POST['password'];
+
+$_created_at = date('Y-m-d h:i:s',time());
 //echo $_title;
 
 //Connect to database
@@ -16,15 +18,16 @@ $conn = new PDO("mysql:host=localhost;dbname=ecommerce",
 //set the PDO error mode to exception
 $conn->setAttribute(PDO::ATTR_ERRMODE,
     PDO::ERRMODE_EXCEPTION);
-$query = "INSERT INTO `admin` (`name`,`email`,`password`) 
-          VALUES (:name, :email, :password);";
+$query = "INSERT INTO `admin` (`name`,`email`,`password`,`created_at`) 
+          VALUES (:name, :email, :password, :created_at);";
 
 $stmt = $conn->prepare($query);
 
 $result = $stmt->execute(array(
     ':name' => $_name,
     ':email' => $_email,
-    ':password' => $_password
+    ':password' => $_password,
+    ':created_at' => $_created_at
 ));
 
 //$result = $stmt->execute();

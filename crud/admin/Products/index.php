@@ -59,6 +59,7 @@ echo "</pre>";*/
                     <thead>
                     <tr>
                         <th scope="col">Title</th>
+                        <th scope="col">Status</th>
                         <th scope="col">Action</th>
                     </tr>
                     </thead>
@@ -72,6 +73,7 @@ echo "</pre>";*/
                     <tr>
                         <!-- php echo = '=' same work-->
                         <td><?= $product['title']?></td>
+                        <td><?= $product['is_active'] ? 'Activated' : 'Deactivated'?></td>
                         <td><a href="show.php?id=<?=$product['id'];?>">Show</a>
                             |
                             <a href="edit.php?id=<?=$product['id'];?>">Edit</a>

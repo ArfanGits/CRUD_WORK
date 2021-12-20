@@ -66,6 +66,39 @@ echo "</pre>";*/
                             >
                         </div>
                     </div>
+
+
+                    <div class="mb-3 row form-check">
+                        <div class="col-md-9">
+                            <?php
+                            if ($product['is_active'] == 0) {
+                                ?>
+                                <input type="checkbox"
+                                       class="form-check-input"
+                                       id="inputIsActive"
+                                       name="is_active"
+                                       value="1"
+                                >
+                                <?php
+                            } else {
+                                ?>
+                                <input type="checkbox"
+                                       class="form-check-input"
+                                       id="inputIsActive"
+                                       name="is_active"
+                                       value="1"
+                                       checked
+                                >
+                                <?php
+                            }
+                            ?>
+                        </div>
+                        <label for="inputIsActive" class="col-md-3  form-check-label">
+                            Is Active:
+                        </label>
+
+                    </div>
+
                     <div class="mb-3 row">
                         <label for="inputFile" class="col-md-3 col-form-label">Picture:</label>
                         <div class="col-md-9">

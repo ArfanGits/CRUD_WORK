@@ -56,6 +56,14 @@ echo "</pre>";*/
                     <dt class="col-md-6">Password:</dt>
                     <dd class="col-md-6"><?= $admin['password'];?></dd>
                 </dl>
+                <dl class="row">
+                    <dt class="col-md-2">Created AT:</dt>
+                    <dd class="col-md-10"><?= $admin['created_at'];?></dd>
+                </dl>
+                <dl class="row">
+                    <dt class="col-md-2">Modified AT:</dt>
+                    <dd class="col-md-10"><?= $admin['modified_at'];?></dd>
+                </dl>
             </div>
         </div>
     </div>

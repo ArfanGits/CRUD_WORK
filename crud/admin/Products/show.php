@@ -42,7 +42,6 @@ echo "</pre>";*/
         <div class="row justify-content-center">
             <div class="col-md-5">
                 <h1 class="text-center mb-4">Show</h1>
-
                 <dl class="row">
                     <dt class="col-md-2">ID:</dt>
                     <dd class="col-md-10"><?= $product['id'];?></dd>
@@ -50,6 +49,22 @@ echo "</pre>";*/
                 <dl class="row">
                     <dt class="col-md-2">Title:</dt>
                     <dd class="col-md-10"><?= $product['title'];?></dd>
+                </dl>
+                <dl class="row">
+                    <dt class="col-md-3">Is Active</dt>
+                    <dd class="col-md-9">
+                        <?php
+                        echo $product['is_active'] ? 'Activated' : 'Deactivated';
+                        ?>
+                    </dd>
+                </dl>
+                <dl class="row">
+                    <dt class="col-md-2">Created AT:</dt>
+                    <dd class="col-md-10"><?= $product['created_at'];?></dd>
+                </dl>
+                <dl class="row">
+                    <dt class="col-md-2">Modified AT:</dt>
+                    <dd class="col-md-10"><?= $product['modified_at'];?></dd>
                 </dl>
                 <dl class="row">
                     <dt class="col-md-2">Picture:</dt>

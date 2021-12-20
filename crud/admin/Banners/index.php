@@ -57,6 +57,7 @@ echo "</pre>";*/
                     <thead>
                     <tr>
                         <th scope="col">Title</th>
+                        <th scope="col">Status</th>
                         <th scope="col">Action</th>
                     </tr>
                     </thead>
@@ -69,6 +70,7 @@ echo "</pre>";*/
                             <tr>
                                 <!-- php echo = '=' same work-->
                                 <td><?= $banner['title']?></td>
+                                <td><?= $banner['is_active'] ? 'Activated' : 'Deactivated'?></td>
                                 <td><a href="show.php?id=<?=$banner['id'];?>">Show</a>
                                     |
                                     <a href="edit.php?id=<?=$banner['id'];?>">Edit</a>

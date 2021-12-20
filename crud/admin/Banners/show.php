@@ -52,6 +52,22 @@ echo "</pre>";*/
                     <dd class="col-md-6"><?= $banner['title'];?></dd>
                 </dl>
                 <dl class="row">
+                    <dt class="col-md-3">Is Active</dt>
+                    <dd class="col-md-9">
+                        <?php
+                        echo $banner['is_active'] ? 'Activated' : 'Deactivated';
+                        ?>
+                    </dd>
+                </dl>
+                <dl class="row">
+                    <dt class="col-md-2">Created AT:</dt>
+                    <dd class="col-md-10"><?= $banner['created_at'];?></dd>
+                </dl>
+                <dl class="row">
+                    <dt class="col-md-2">Modified AT:</dt>
+                    <dd class="col-md-10"><?= $banner['modified_at'];?></dd>
+                </dl>
+                <dl class="row">
                     <dt class="col-md-6">Link:</dt>
                     <dd class="col-md-6"><?= $banner['link'];?></dd>
                 </dl>
