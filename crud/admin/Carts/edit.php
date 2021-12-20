@@ -91,6 +91,18 @@ echo "</pre>";*/
                         </div>
                     </div>
                     <div class="mb-3 row">
+                        <label for="inputUnite_price" class="col-md-3 col-form-label">Unite Price:</label>
+                        <div class="col-md-9">
+                            <input
+                                type="number"
+                                class="form-control"
+                                id="inputUnite_price"
+                                name="unite_price"
+                                value="<?=$cart['unite_price']?>"
+                            >
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
                         <label for="inputFile" class="col-md-3 col-form-label">Picture:</label>
                         <div class="col-md-9">
                             <input

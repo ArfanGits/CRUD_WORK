@@ -66,12 +66,12 @@
                         </div>
                     </div>
                     <div class="mb-3 row">
-                        <label for="inputUnit_price" class="col-md-3 col-form-label">Unite price:</label>
+                        <label for="inputUnite_price" class="col-md-3 col-form-label">Unite price:</label>
                         <div class="col-md-9">
                             <input
                                     type="number"
                                     class="form-control"
-                                    id="inputUnit_price"
+                                    id="inputUnite_price"
                                     name="unite_price"
                                     value=""
                             >

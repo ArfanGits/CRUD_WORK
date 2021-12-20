@@ -25,6 +25,8 @@ $_id = $_POST['id'];
 $_product_id = $_POST['product_id'];
 $_product_title = $_POST['product_title'];
 $_qty = $_POST['qty'];
+$_unite_price = $_POST['unite_price'];
+$_total_price = ($_unite_price*$_qty);
 //echo $_title;
 
 //Connect to database
@@ -36,7 +38,9 @@ $conn->setAttribute(PDO::ATTR_ERRMODE,
 $query = "UPDATE `cart` SET `product_id` = :product_id, 
                                `product_title` = :product_title, 
                                `qty` = :qty,
-                               `picture` = :picture
+                               `picture` = :picture,
+                               `unite_price` = :unite_price,
+                               `total_price` = :total_price
           WHERE `cart`.`id` = :id";
 
 $stmt = $conn->prepare($query);
@@ -45,6 +49,8 @@ $stmt->bindParam(':id', $_id);
 $stmt->bindParam(':product_id', $_product_id);
 $stmt->bindParam(':product_title', $_product_title);
 $stmt->bindParam(':qty', $_qty);
+$stmt->bindParam(':unite_price', $_unite_price);
+$stmt->bindParam(':total_price', $_total_price);
 $stmt->bindParam(':picture', $_picture);
 
 $result = $stmt->execute();

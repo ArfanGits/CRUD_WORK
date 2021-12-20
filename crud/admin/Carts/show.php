@@ -60,6 +60,14 @@ echo "</pre>";*/
                     <dd class="col-md-6"><?= $cart['qty'];?></dd>
                 </dl>
                 <dl class="row">
+                    <dt class="col-md-6">Unite Price:</dt>
+                    <dd class="col-md-6"><?= $cart['unite_price'];?></dd>
+                </dl>
+                <dl class="row">
+                    <dt class="col-md-6">Total Price:</dt>
+                    <dd class="col-md-6"><?= $cart['total_price'];?></dd>
+                </dl>
+                <dl class="row">
                     <dt class="col-md-2">Picture:</dt>
                     <dd class="col-md-10">
                         <?= $cart['picture'];?>
