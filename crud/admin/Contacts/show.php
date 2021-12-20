@@ -56,6 +56,22 @@ echo "</pre>";*/
                     <dt class="col-md-6">Password:</dt>
                     <dd class="col-md-6"><?= $contact['subject'];?></dd>
                 </dl>
+                <dl class="row">
+                    <dt class="col-md-6">Comment:</dt>
+                    <dd class="col-md-6"><?= $contact['comment'];?></dd>
+                </dl>
+                <dl class="row">
+                    <dt class="col-md-6">Date of Birth:</dt>
+                    <dd class="col-md-6"><?= $contact['date'];?></dd>
+                </dl>
+                <dl class="row">
+                    <dt class="col-md-3">Status:</dt>
+                    <dd class="col-md-9">
+                        <?php
+                        echo $contact['status'] ? 'Active' : 'Inactive';
+                        ?>
+                    </dd>
+                </dl>
             </div>
         </div>
     </div>

@@ -96,7 +96,6 @@ echo "</pre>";*/
                         <label for="inputIsActive" class="col-md-3  form-check-label">
                             Is Active:
                         </label>
-
                     </div>
 
                     <div class="mb-3 row">

@@ -65,7 +65,44 @@
                             >
                         </div>
                     </div>
-
+                    <div class="mb-3 row">
+                        <label for="inputComment" class="col-md-3 col-form-label">Comment:</label>
+                        <div class="col-md-9">
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="inputComment"
+                                name="comment"
+                                value=""
+                            >
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="inputDate" class="col-md-3 col-form-label">Date of Birth:</label>
+                        <div class="col-md-9">
+                            <input
+                                type="date"
+                                class="form-control"
+                                id="inputDate"
+                                name="date"
+                                value=""
+                            >
+                        </div>
+                    </div>
+                    <div class="mb-3 row form-check">
+                         <div class="col-md-9">
+                             <input type="checkbox"
+                                    class="form-check-input"
+                                    id="inputStatus"
+                                    name="status"
+                                    value="1">
+                         </div>
+                         <label for="inputStatus"
+                                class="col-md-3
+                                form-check-label">
+                             Status:
+                         </label>
+                     </div>
                     <div class="mb-3 row">
                         <div class="col-auto">
                             <button type="submit" class="btn btn-primary mb-3">Submit</button>
