@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 20, 2021 at 11:13 PM
--- Server version: 5.7.33
--- PHP Version: 7.4.19
+-- Generation Time: Dec 21, 2021 at 12:40 PM
+-- Server version: 5.7.24
+-- PHP Version: 7.2.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -194,6 +194,7 @@ CREATE TABLE `product` (
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `modified_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `is_deleted` tinyint(4) NOT NULL DEFAULT '0',
   `picture` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `is_active` tinyint(4) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -202,16 +203,12 @@ CREATE TABLE `product` (
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`id`, `title`, `created_at`, `modified_at`, `picture`, `is_active`) VALUES
-(30, 'Test1', '2021-12-20 09:49:49', '2021-12-20 10:11:31', NULL, 0),
-(31, 'Test2', '2021-12-20 09:49:49', '2021-12-20 10:11:31', 'payment-2.png', 0),
-(32, 'TestApproot', '2021-12-20 09:49:49', '2021-12-20 10:11:31', 'custom-img4.jpg', 0),
-(33, 'lamp', '2021-12-20 09:49:49', '2021-12-20 10:11:31', 'product5-700x850.jpg', 0),
-(34, 'farija', '2021-12-20 09:49:49', '2021-12-20 10:11:31', 'b-logo2-130x50.png', 0),
-(35, 'Istiaq GG', '2021-12-20 09:49:49', '2021-12-20 10:11:31', 'product24-700x850.jpg', 1),
-(36, 'Watch Time', '2021-12-20 03:59:14', '2021-12-20 10:11:31', 'custom-img4.jpg', 0),
-(37, 'newOne', '2021-12-20 10:04:10', '2021-12-20 10:15:29', 'newsletter-img.jpg', 1),
-(38, '22new', '2021-12-20 10:23:53', '2021-12-20 10:24:16', 'product2-700x850.jpg', 0);
+INSERT INTO `product` (`id`, `title`, `created_at`, `modified_at`, `is_deleted`, `picture`, `is_active`) VALUES
+(31, 'Test2', '2021-12-20 09:49:49', '2021-12-20 10:11:31', 0, 'payment-2.png', 0),
+(32, 'TestApproot', '2021-12-20 09:49:49', '2021-12-20 10:11:31', 0, 'custom-img4.jpg', 0),
+(33, 'lamp', '2021-12-20 09:49:49', '2021-12-20 10:11:31', 0, 'product5-700x850.jpg', 0),
+(35, 'Istiaq GG', '2021-12-20 09:49:49', '2021-12-20 10:11:31', 0, 'product24-700x850.jpg', 1),
+(36, 'Watch Time', '2021-12-20 03:59:14', '2021-12-20 10:11:31', 0, 'custom-img4.jpg', 0);
 
 --
 -- Indexes for dumped tables
