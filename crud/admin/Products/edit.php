@@ -98,6 +98,36 @@ echo "</pre>";*/
                         </label>
                     </div>
 
+                    <div class="mb-3 row form-check">
+                        <div class="col-md-9">
+                            <?php
+                            if ($product['is_deleted'] == 0) {
+                                ?>
+                                <input type="checkbox"
+                                       class="form-check-input"
+                                       id="inputIsDeleted"
+                                       name="is_deleted"
+                                       value="1"
+                                >
+                                <?php
+                            } else {
+                                ?>
+                                <input type="checkbox"
+                                       class="form-check-input"
+                                       id="inputIsDeleted"
+                                       name="is_deleted"
+                                       value="1"
+                                       checked
+                                >
+                                <?php
+                            }
+                            ?>
+                        </div>
+                        <label for="inputIsDeleted" class="col-md-3  form-check-label">
+                            Is Deleted:
+                        </label>
+                    </div>
+
                     <div class="mb-3 row">
                         <label for="inputFile" class="col-md-3 col-form-label">Picture:</label>
                         <div class="col-md-9">

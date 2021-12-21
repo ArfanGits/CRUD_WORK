@@ -67,10 +67,24 @@ echo "</pre>";*/
                     <dd class="col-md-10"><?= $product['modified_at'];?></dd>
                 </dl>
                 <dl class="row">
+                    <dt class="col-md-3">Is Deleted:</dt>
+                    <dd class="col-md-9">
+                        <?php
+                        echo $product['is_deleted'] ? 'Deleted' : 'Not deleted';
+                        ?>
+                    </dd>
+                </dl>
+                <dl class="row">
                     <dt class="col-md-2">Picture:</dt>
                     <dd class="col-md-10">
                         <?= $product['picture'];?>
                         <img src="<?=$webroot;?>uploads/<?=$product['picture'];?>">
+                    </dd>
+                </dl>
+                <dl class="row">
+<!--                    <dt class="col-md-2">Go to:</dt>-->
+                    <dd class="col-md-9">
+                        Go to <a href="index.php">List Items</a>
                     </dd>
                 </dl>
             </div>

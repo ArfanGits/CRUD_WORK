@@ -32,6 +32,12 @@ if (array_key_exists('is_active', $_POST)) {
     $_is_active = 0;
 }
 
+if (array_key_exists('is_deleted', $_POST)) {
+    $_is_deleted = $_POST['is_deleted'];
+} else {
+    $_is_deleted = 0;
+}
+
 $_modified_at = date('Y-m-d h:i:s',time());
 
 //Connect to database
@@ -44,6 +50,7 @@ $query = "UPDATE `product`
           SET `title` = :title, 
           `picture` = :picture,
           `is_active` = :is_active,
+          `is_deleted` = :is_deleted,
           `modified_at` = :modified_at 
           WHERE `product`.`id` = :id";
 
@@ -52,6 +59,7 @@ $stmt = $conn->prepare($query);
 $stmt->bindParam(':title', $_title);
 $stmt->bindParam(':picture', $_picture);
 $stmt->bindParam(':is_active', $_is_active);
+$stmt->bindParam(':is_deleted', $_is_deleted);
 $stmt->bindParam(':modified_at', $_modified_at);
 $stmt->bindParam(':id', $_id);
 
