@@ -1,0 +1,117 @@
+@import url(bootstrap.min.css);
+@import url(all.min.css);
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+
+body{
+    font-family: 'PT Sans', sans-serif;
+}
+
+
+
+/*Style for Header*/
+header .bg-light{
+    background-color: #4a4a4a !important;
+}
+
+header .navbar{
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+header .navbar-light .navbar-nav .nav-link{
+    color: #fff;
+    font-size: 11px;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+header .navbar-light .navbar-nav .nav-link.active{
+    color: #bea285;
+}
+header .navbar-light .navbar-nav .nav-item{
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+header .navbar-light .navbar-nav .nav-item:hover{
+    background-color: #f8f8f8;
+    color: #6c6c6c;
+}
+header .navbar-light .navbar-toggler span{
+   color: #f8f8f8;
+}
+
+
+/*Style for Best Sellers Section*/
+
+#best-sellers .container .best-seller{
+    border-bottom: 1px #e5e5e5 solid;
+}
+
+section .container h2{
+    font-weight: 600;
+    font-size: 1.25rem;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding-top: 0.75rem;
+    color: #000;
+}
+section .container h2 span{
+    font-weight: 400;
+    font-style: normal;
+}
+
+section .card{
+    border: none;
+}
+
+section .card .card-body .card-title a{
+    color: #000;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: normal;
+    letter-spacing: 0.5px;
+}
+
+section .card .card-body .card-text{
+    color: #ccc;
+    font-size: 10px;;
+}
+
+section .card .card-body .dollar{
+    font-weight: 600;
+}
+
+section .card .card-body .btn-light{
+    background-color: transparent;
+}
+
+section .card .card-body .add-to-card{
+    border: 1px #d1d1d1 solid;
+
+}
+
+section .card .card-body p del{
+    color: #cccccc;
+    font-size: 0.9rem;
+    font-weight: normal;
+}
+
+/*Style for product page*/
+/*Style for Accordion*/
+.accordion-button::after{
+    flex-shrink: 0;
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-left: auto;
+    content: "";
+    background-image: none;
+    background-repeat: no-repeat;
+    background-size: 1.25rem;
+    transition: transform .2s ease-in-out;
+}
+
+.accordion-button:not(.collapsed)::after{
+    background-image: none;
+    transform: none;
+}
