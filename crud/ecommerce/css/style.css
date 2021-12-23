@@ -1,5 +1,6 @@
 @import url(bootstrap.min.css);
 @import url(all.min.css);
+
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 
@@ -88,18 +89,20 @@ section .card .card-body .btn-light{
 
 section .card .card-body .add-to-card{
     border: 1px #d1d1d1 solid;
-
 }
 
 section .card .card-body p del{
-    color: #cccccc;
+    color: #ccc;
     font-size: 0.9rem;
     font-weight: normal;
 }
 
+
+
+
 /*Style for product page*/
 /*Style for Accordion*/
-.accordion-button::after{
+#wrapper .accordion-button::after {
     flex-shrink: 0;
     width: 1.25rem;
     height: 1.25rem;
@@ -110,8 +113,53 @@ section .card .card-body p del{
     background-size: 1.25rem;
     transition: transform .2s ease-in-out;
 }
-
-.accordion-button:not(.collapsed)::after{
+#wrapper .accordion-button:not(.collapsed)::after {
     background-image: none;
     transform: none;
+}
+
+#wrapper .accordion-item {
+    background-color: #fff;
+    border: none;
+}
+
+section .container h2 {
+    display: block;
+}
+
+#wrapper .accordion-button {
+    position: relative;
+    display: inline-block;
+    align-items: unset;
+    font-size: 0.8rem;
+    background-color: #fff;
+    border-color: #fff;
+    transition: none;
+}
+#wrapper .accordion-button i{
+    position: absolute;
+    right: 4.5rem;
+    top: 1.2rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    display: inline-block;
+}
+
+#wrapper .accordion-button:focus {
+     z-index: 3;
+     border-color: transparent;
+     outline: 0;
+     box-shadow: none;
+}
+
+#wrapper .accordion-button:not(.collapsed) .fa-plus::before{
+    content: '-';
+    display: inline-block;
+    font-size: 2rem;
+    position: absolute;
+    top: -1rem;
+}
+
+.accordion-button:not(.collapsed){
+    color: #ef4749;
 }
