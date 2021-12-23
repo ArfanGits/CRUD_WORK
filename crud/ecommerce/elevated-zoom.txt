@@ -1,8 +1,10 @@
-https://www.codehim.com/gallery/jquery-product-image-gallery-with-zoom-view-on-hover/
+https://www.codehim.com/gallery/jquery-product-image-
+gallery-with-zoom-view-on-hover/
 
 https://bootsnipp.com/snippets/55Z0v
 
-https://bbbootstrap.com/snippets/ecommerce-product-jquery-magnify-image-hover-magnifier-43833730
+https://bbbootstrap.com/snippets/ecommerce-product-jquery-magnify-
+image-hover-magnifier-43833730
 
 
 
