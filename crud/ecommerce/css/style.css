@@ -99,6 +99,117 @@ section .card .card-body p del{
 
 
 
+/*Style for special products*/
+
+#special-products .container .row .col-md-6 .box-timer{
+    background-image: url("../img/deals-bg.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+#special-products .container .row .col-md-6 .box-timer h3 {
+    color: #ef4749;
+    font-size: 2.5rem;
+    margin: 0 auto 10px;
+    font-weight: 400;
+    display: block;
+    padding: 0;
+    text-align: center;
+    letter-spacing: 0;
+}
+
+#special-products .container .row .col-md-6 .box-timer .starSeparator {
+    display: inline-block;
+    text-align: center;
+    height: 1px;
+    width: 90px;
+    background-color: #333;
+    margin-top: 1rem;
+}
+
+#special-products .container .row .col-md-6 .box-timer p {
+    color: #666;
+    font-size: 1rem;
+    text-align: center;
+    padding: 1.5rem 4rem 0;
+}
+
+#special-products .container .row .col-md-6 .box-timer .shop-now .btn-danger {
+    padding:0.8rem 1.5rem;
+    font-size: 13px;
+    text-transform: uppercase;
+    color: #fff;
+    letter-spacing: 1px;
+    display: inline-block;
+    margin-top: 2.2rem;
+    background: #ef4749;
+    border: 1px #ef4749 solid;
+    margin-bottom: 0;
+    border-radius: 0;
+}
+#special-products .container .row .col-md-6 .box-timer .shop-now .btn-danger span{
+    display: inline-block;
+    padding-right: 0.6rem;
+}
+
+
+    /*Style for countdown*/
+/* Deals of the day ***************/
+.timer-grid {
+    overflow: hidden;
+    display: inline-block;
+}
+.timer-grid .box-time-date {
+    background: #fff;
+    font-size: 10px;
+    color: #999;
+    min-width: 100px;
+    min-height: 100px;
+    text-align: center;
+    margin-top: 30px;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-top: 20px;
+    font-family: 'PT Sans', sans-serif;
+    font-weight: normal;
+}
+.timer-grid .day.box-time-date {
+    background: #000;
+    border-color: #000 !important
+}
+.timer-grid .day.box-time-date span {
+    color: #fff
+}
+ .timer-grid .day.box-time-date {
+    color: #fff
+}
+.timer-grid .box-time-date span {
+    display: block;
+    font-size: 24px;
+    color: #000;
+    margin-top: 6px;
+}
+.box-timer {
+    text-align: center;
+    margin-top: 0;
+    position: relative;
+    left: 0px;
+    top: 0
+}
+.timer-grid .box-time-date span {
+    display: block;
+    font-size: 20px;
+    color: #f28083;
+    margin-top: 6px;
+}
+
+
+
 
 /*Style for product page*/
 /*Style for Accordion*/
