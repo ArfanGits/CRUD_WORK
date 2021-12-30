@@ -1,22 +1,13 @@
 <?php
 
-session_start();
+$approot = $_SERVER['DOCUMENT_ROOT']."/batch1-arfan/crud/";
+include_once ($approot. "vendor/autoload.php");
 
-//Connect to database
-$conn = new PDO("mysql:host=localhost;dbname=ecommerce",
-    'root', '');
-//set the PDO error mode to exception
-$conn->setAttribute(PDO::ATTR_ERRMODE,
-    PDO::ERRMODE_EXCEPTION);
+use Bitm\Contact;
 
+$_contact = new Contact();
 
-$query = "SELECT * FROM `contact`";
-
-$stmt = $conn->prepare($query);
-
-$result = $stmt->execute();
-
-$contacts = $stmt->fetchAll();
+$contacts = $_contact->index();
 
 /*echo "<pre>";
 print_r($products);

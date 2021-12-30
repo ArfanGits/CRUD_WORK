@@ -1,29 +1,12 @@
 <?php
 
-session_start();
+$approot = $_SERVER['DOCUMENT_ROOT']."/batch1-arfan/crud/";
+include_once ($approot. "vendor/autoload.php");
 
-$_id = $_GET['id'];
+use Bitm\Product;
 
-//Connect to database
-$conn = new PDO("mysql:host=localhost;dbname=ecommerce",
-    'root', '');
-//set the PDO error mode to exception
-$conn->setAttribute(PDO::ATTR_ERRMODE,
-    PDO::ERRMODE_EXCEPTION);
+$_product = new Product();
 
-$query = "DELETE FROM `product` WHERE `product`.`id` = :id";
-$stmt = $conn->prepare($query);
-$stmt->bindParam(':id', $_id);
-$result = $stmt->execute();
-
-//var_dump($result);
-
-if ($result){
-    $_SESSION['message'] = "Product is deleted successfully";
-}else{
-    $_SESSION['message'] = "Product is not deleted";
-}
-
-header("location:trash_index.php");
+$product = $_product->delete();
 
 ?>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 21, 2021 at 12:40 PM
+-- Generation Time: Dec 30, 2021 at 12:48 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.2.19
 
@@ -208,7 +208,8 @@ INSERT INTO `product` (`id`, `title`, `created_at`, `modified_at`, `is_deleted`,
 (32, 'TestApproot', '2021-12-20 09:49:49', '2021-12-20 10:11:31', 0, 'custom-img4.jpg', 0),
 (33, 'lamp', '2021-12-20 09:49:49', '2021-12-20 10:11:31', 0, 'product5-700x850.jpg', 0),
 (35, 'Istiaq GG', '2021-12-20 09:49:49', '2021-12-20 10:11:31', 0, 'product24-700x850.jpg', 1),
-(36, 'Watch Time', '2021-12-20 03:59:14', '2021-12-20 10:11:31', 0, 'custom-img4.jpg', 0);
+(39, 'Testing update edited file', '2021-12-30 12:22:47', '2021-12-30 12:29:46', 0, 'custom-img4.jpg', 0),
+(43, 'item5', '2021-12-30 12:45:25', '2021-12-30 12:45:35', 0, 'custom-img1.jpg', 0);
 
 --
 -- Indexes for dumped tables
@@ -300,7 +301,7 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

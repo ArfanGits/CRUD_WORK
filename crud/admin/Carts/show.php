@@ -1,25 +1,15 @@
 <?php
 
+
 $webroot = 'http://localhost/batch1-arfan/crud/';
+$approot = $_SERVER['DOCUMENT_ROOT']."/batch1-arfan/crud/";
+include_once ($approot. "vendor/autoload.php");
 
-$_id = $_GET['id'];
+use Bitm\Cart;
 
-//Connect to database
-$conn = new PDO("mysql:host=localhost;dbname=ecommerce",
-    'root', '');
-//set the PDO error mode to exception
-$conn->setAttribute(PDO::ATTR_ERRMODE,
-    PDO::ERRMODE_EXCEPTION);
+$_cart = new Cart();
 
-$query = "SELECT * FROM `cart` WHERE id = :id";
-
-$stmt = $conn->prepare($query);
-
-$stmt->bindParam(':id', $_id);
-
-$result = $stmt->execute();
-
-$cart = $stmt->fetch();
+$cart = $_cart->show();
 
 /*echo "<pre>";
 print_r($product);

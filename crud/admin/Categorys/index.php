@@ -1,23 +1,14 @@
 <?php
 
-session_start();
 
-//Connect to database
-$conn = new PDO("mysql:host=localhost;dbname=ecommerce",
-    'root', '');
-//set the PDO error mode to exception
-$conn->setAttribute(PDO::ATTR_ERRMODE,
-    PDO::ERRMODE_EXCEPTION);
+$approot = $_SERVER['DOCUMENT_ROOT']."/batch1-arfan/crud/";
+include_once ($approot. "vendor/autoload.php");
 
+use Bitm\Category;
 
-$query = "SELECT * FROM `category`";
+$_category = new Category();
 
-$stmt = $conn->prepare($query);
-
-$result = $stmt->execute();
-
-$categorys = $stmt->fetchAll();
-
+$categorys = $_category->index();
 /*echo "<pre>";
 print_r($products);
 echo "</pre>";*/

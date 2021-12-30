@@ -1,22 +1,12 @@
 <?php
 
-session_start();
+$approot = $_SERVER['DOCUMENT_ROOT']."/batch1-arfan/crud/";
+include_once ($approot. "vendor/autoload.php");
+use Bitm\Product;
 
-//Connect to database
-$conn = new PDO("mysql:host=localhost;dbname=ecommerce",
-    'root', '');
-//set the PDO error mode to exception
-$conn->setAttribute(PDO::ATTR_ERRMODE,
-    PDO::ERRMODE_EXCEPTION);
+$_product = new Product();
 
-$query = "SELECT * FROM `product` WHERE is_deleted = 0";
-
-$stmt = $conn->prepare($query);
-
-$result = $stmt->execute();
-
-$products = $stmt->fetchAll();
-
+$products = $_product->index();
 //var_dump($products);
 
 /*echo "<pre>";

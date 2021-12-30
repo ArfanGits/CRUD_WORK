@@ -1,22 +1,14 @@
 <?php
 
-session_start();
+// echo $_SERVER['DOCUMENT_ROOT']."/crud";
 
-//Connect to database
-$conn = new PDO("mysql:host=localhost;dbname=ecommerce",
-    'root', '');
-//set the PDO error mode to exception
-$conn->setAttribute(PDO::ATTR_ERRMODE,
-    PDO::ERRMODE_EXCEPTION);
+$approot = $_SERVER['DOCUMENT_ROOT']."/batch1-arfan/crud/";
+include_once ($approot. "vendor/autoload.php");
+use Bitm\Banner;
 
+$_banner = new Banner();
 
-$query = "SELECT * FROM `banner`";
-
-$stmt = $conn->prepare($query);
-
-$result = $stmt->execute();
-
-$banners = $stmt->fetchAll();
+$banners = $_banner->index();
 
 /*echo "<pre>";
 print_r($products);
