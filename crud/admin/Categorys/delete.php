@@ -1,33 +1,12 @@
 <?php
 
-session_start();
+$approot = $_SERVER['DOCUMENT_ROOT']."/batch1-arfan/crud/";
+include_once ($approot. "vendor/autoload.php");
 
-$_id = $_GET['id'];
+use Bitm\Category;
 
-//Connect to database
-$conn = new PDO("mysql:host=localhost;dbname=ecommerce",
-    'root', '');
-//set the PDO error mode to exception
-$conn->setAttribute(PDO::ATTR_ERRMODE,
-    PDO::ERRMODE_EXCEPTION);
+$_category = new Category();
 
-$query = "DELETE FROM `category` WHERE `category`.`id` = :id";
-
-$stmt = $conn->prepare($query);
-
-$stmt->bindParam(':id', $_id);
-
-$result = $stmt->execute();
-
-//var_dump($result);
-
-if ($result){
-    $_SESSION['message'] = "Category is deleted successfully";
-}else{
-    $_SESSION['message'] = "Category is not deleted";
-}
-
-// this is for the location set to store.php to main home page index.php
-header("location:index.php");
+$category = $_category->delete();
 
 ?>

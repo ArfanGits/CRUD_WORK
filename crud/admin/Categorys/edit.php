@@ -1,27 +1,14 @@
 <?php
 
-$_id = $_GET['id'];
 
-//Connect to database
-$conn = new PDO("mysql:host=localhost;dbname=ecommerce",
-    'root', '');
-//set the PDO error mode to exception
-$conn->setAttribute(PDO::ATTR_ERRMODE,
-    PDO::ERRMODE_EXCEPTION);
+$approot = $_SERVER['DOCUMENT_ROOT']."/batch1-arfan/crud/";
+include_once ($approot. "vendor/autoload.php");
 
-$query = "SELECT * FROM `category` WHERE id = :id";
+use Bitm\Category;
 
-$stmt = $conn->prepare($query);
+$_category = new Category();
 
-$stmt->bindParam(':id', $_id);
-
-$result = $stmt->execute();
-
-$category = $stmt->fetch();
-
-/*echo "<pre>";
-print_r($product);
-echo "</pre>";*/
+$category = $_category->edit();
 
 ?>
 
