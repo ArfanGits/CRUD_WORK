@@ -2,24 +2,14 @@
 
 $webroot = 'http://localhost/batch1-arfan/crud/';
 
-$_id = $_GET['id'];
+$approot = $_SERVER['DOCUMENT_ROOT']."/batch1-arfan/crud/";
+include_once ($approot. "vendor/autoload.php");
 
-//Connect to database
-$conn = new PDO("mysql:host=localhost;dbname=ecommerce",
-    'root', '');
-//set the PDO error mode to exception
-$conn->setAttribute(PDO::ATTR_ERRMODE,
-    PDO::ERRMODE_EXCEPTION);
+use Bitm\Banner;
 
-$query = "SELECT * FROM `banner` WHERE id = :id";
+$_banner = new Banner();
 
-$stmt = $conn->prepare($query);
-
-$stmt->bindParam(':id', $_id);
-
-$result = $stmt->execute();
-
-$banner = $stmt->fetch();
+$banner = $_banner->edit();
 
 /*echo "<pre>";
 print_r($product);
