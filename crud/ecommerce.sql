@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 01, 2022 at 11:16 AM
+-- Generation Time: Jan 01, 2022 at 09:31 PM
 -- Server version: 5.7.33
 -- PHP Version: 7.4.19
 
@@ -80,7 +80,7 @@ INSERT INTO `banner` (`id`, `title`, `link`, `promotional_message`, `html_banner
 (19, 'Isti GG', 'istisqr.com', 'hdhhdhd', '', 0, 'custom-img1.jpg', '2021-12-20 10:54:42', '2021-12-20 10:54:42', 0),
 (20, 'test1', 'dsgfadf', 'fef', '', 0, 'custom-img3.jpg', '2021-12-20 11:00:34', '2021-12-20 12:51:09', 1),
 (21, 'jhjhjh', 'dsfgf.com', 'Editing Donebbvbvcbb', '', 0, 'list.svg', '2021-12-20 12:11:19', '2021-12-20 12:11:47', 0),
-(22, 'new test edit', 'test22.com', 'newfrom', 'new html', 0, 'custom-img2.jpg', '2021-12-20 12:36:11', '2021-12-20 12:51:02', 1);
+(23, 'test edit update', 'test.com', 'hshsh', 'some', 1, 'product8-700x850.jpg', '2022-01-01 11:53:12', '2022-01-01 11:53:47', 0);
 
 -- --------------------------------------------------------
 
@@ -272,19 +272,19 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `banner`
 --
 ALTER TABLE `banner`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `contact`
