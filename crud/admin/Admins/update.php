@@ -1,52 +1,13 @@
 <?php
-/*echo "<pre>";
-var_dump($_POST);
-echo "</pre>";*/
-session_start();
+$approot = $_SERVER['DOCUMENT_ROOT']."/batch1-arfan/crud/";
+include_once ($approot. "vendor/autoload.php");
 
-$_id = $_POST['id'];
-$_name = $_POST['name'];
-$_email = $_POST['email'];
-$_password = $_POST['password'];
-$_phone = $_POST['phone'];
+use Bitm\Admin;
 
-$_modified_at = date('Y-m-d h:i:s',time());
-//echo $_name;
+$_admin = new Admin();
 
-//Connect to database
-$conn = new PDO("mysql:host=localhost;dbname=ecommerce",
-    'root', '');
-//set the PDO error mode to exception
-$conn->setAttribute(PDO::ATTR_ERRMODE,
-    PDO::ERRMODE_EXCEPTION);
-$query = "UPDATE `admin` SET `name` = :name, 
-                               `email` = :email, 
-                               `password` = :password,
-                               `phone` = :phone,
-                               `modified_at` = :modified_at
-          WHERE `admin`.`id` = :id";
+$admin = $_admin->update();
 
-$stmt = $conn->prepare($query);
-
-$stmt->bindParam(':id', $_id);
-$stmt->bindParam(':name', $_name);
-$stmt->bindParam(':email', $_email);
-$stmt->bindParam(':password', $_password);
-$stmt->bindParam(':phone', $_phone);
-$stmt->bindParam(':modified_at', $_modified_at);
-
-$result = $stmt->execute();
-
-//var_dump($result);
-
-if ($result){
-    $_SESSION['message'] = "Admin is updated successfully";
-}else{
-    $_SESSION['message'] = "Admin is not updated";
-}
-
-// this is for the location set to store.php to main home page index.php
-header("location:index.php");
 ?>
 
 

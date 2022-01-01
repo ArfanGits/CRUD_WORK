@@ -1,23 +1,13 @@
 <?php
 
-$_id = $_GET['id'];
+$approot = $_SERVER['DOCUMENT_ROOT']."/batch1-arfan/crud/";
+include_once ($approot. "vendor/autoload.php");
 
-//Connect to database
-$conn = new PDO("mysql:host=localhost;dbname=ecommerce",
-    'root', '');
-//set the PDO error mode to exception
-$conn->setAttribute(PDO::ATTR_ERRMODE,
-    PDO::ERRMODE_EXCEPTION);
+use Bitm\Admin;
 
-$query = "SELECT * FROM `admin` WHERE id = :id";
+$_admin = new Admin();
 
-$stmt = $conn->prepare($query);
-
-$stmt->bindParam(':id', $_id);
-
-$result = $stmt->execute();
-
-$admin = $stmt->fetch();
+$admin = $_admin->edit();
 
 /*echo "<pre>";
 print_r($product);
