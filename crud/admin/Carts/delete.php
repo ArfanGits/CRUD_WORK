@@ -1,33 +1,12 @@
 <?php
 
-session_start();
+$approot = $_SERVER['DOCUMENT_ROOT']."/batch1-arfan/crud/";
+include_once ($approot. "vendor/autoload.php");
 
-$_id = $_GET['id'];
+use Bitm\Cart;
 
-//Connect to database
-$conn = new PDO("mysql:host=localhost;dbname=ecommerce",
-    'root', '');
-//set the PDO error mode to exception
-$conn->setAttribute(PDO::ATTR_ERRMODE,
-    PDO::ERRMODE_EXCEPTION);
+$_cart = new Cart();
 
-$query = "DELETE FROM `cart` WHERE `cart`.`id` = :id";
-
-$stmt = $conn->prepare($query);
-
-$stmt->bindParam(':id', $_id);
-
-$result = $stmt->execute();
-
-//var_dump($result);
-
-if ($result){
-    $_SESSION['message'] = "Cart is deleted successfully";
-}else{
-    $_SESSION['message'] = "Cart is not deleted";
-}
-
-// this is for the location set to store.php to main home page index.php
-header("location:index.php");
+$cart = $_cart->delete();
 
 ?>
