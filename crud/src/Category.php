@@ -5,20 +5,27 @@ namespace Bitm;
 use PDO;
 
 class Category{
-    public function index(){
-        session_start();
 
+    public $id = null;
+    public $title = null;
+    public $conn = null;
+
+    public function __construct()
+    {
+        session_start();
         //Connect to database
-        $conn = new PDO("mysql:host=localhost;dbname=ecommerce",
+        $this->conn = new PDO("mysql:host=localhost;dbname=ecommerce",
             'root', '');
         //set the PDO error mode to exception
-        $conn->setAttribute(PDO::ATTR_ERRMODE,
+        $this->conn->setAttribute(PDO::ATTR_ERRMODE,
             PDO::ERRMODE_EXCEPTION);
-        
-        
+    }
+
+    public function index(){
+
         $query = "SELECT * FROM `category`";
         
-        $stmt = $conn->prepare($query);
+        $stmt = $this->conn->prepare($query);
         
         $result = $stmt->execute();
         
@@ -30,16 +37,9 @@ class Category{
     public function show(){
         $_id = $_GET['id'];
 
-        //Connect to database
-        $conn = new PDO("mysql:host=localhost;dbname=ecommerce",
-            'root', '');
-        //set the PDO error mode to exception
-        $conn->setAttribute(PDO::ATTR_ERRMODE,
-            PDO::ERRMODE_EXCEPTION);
-
         $query = "SELECT * FROM `category` WHERE id = :id";
 
-        $stmt = $conn->prepare($query);
+        $stmt = $this->conn->prepare($query);
 
         $stmt->bindParam(':id', $_id);
 
@@ -51,24 +51,15 @@ class Category{
     }
 
     public function store(){
-        session_start();
-
         $_name = $_POST['name'];
         $_link = $_POST['link'];
 
         $_created_at = date('Y-m-d h:i:s',time());
-        //echo $_name;
-
-        //Connect to database
-        $conn = new PDO("mysql:host=localhost;dbname=ecommerce",
-            'root', '');
-        //set the PDO error mode to exception
-        $conn->setAttribute(PDO::ATTR_ERRMODE,
-            PDO::ERRMODE_EXCEPTION);
+        
         $query = "INSERT INTO `category` (`name`,`link`,`created_at`) 
                 VALUES (:name, :link, :created_at);";
 
-        $stmt = $conn->prepare($query);
+        $stmt = $this->conn->prepare($query);
 
         $result = $stmt->execute(array(
             ':name' => $_name,
@@ -94,20 +85,11 @@ class Category{
     }
 
     public function delete(){
-        session_start();
-
         $_id = $_GET['id'];
-
-        //Connect to database
-        $conn = new PDO("mysql:host=localhost;dbname=ecommerce",
-            'root', '');
-        //set the PDO error mode to exception
-        $conn->setAttribute(PDO::ATTR_ERRMODE,
-            PDO::ERRMODE_EXCEPTION);
 
         $query = "DELETE FROM `category` WHERE `category`.`id` = :id";
 
-        $stmt = $conn->prepare($query);
+        $stmt = $this->conn->prepare($query);
 
         $stmt->bindParam(':id', $_id);
 
@@ -130,16 +112,9 @@ class Category{
     public function edit(){
         $_id = $_GET['id'];
 
-        //Connect to database
-        $conn = new PDO("mysql:host=localhost;dbname=ecommerce",
-            'root', '');
-        //set the PDO error mode to exception
-        $conn->setAttribute(PDO::ATTR_ERRMODE,
-            PDO::ERRMODE_EXCEPTION);
-
         $query = "SELECT * FROM `category` WHERE id = :id";
 
-        $stmt = $conn->prepare($query);
+        $stmt = $this->conn->prepare($query);
 
         $stmt->bindParam(':id', $_id);
 
@@ -151,27 +126,17 @@ class Category{
     }
 
     public function update(){
-        session_start();
-
         $_id = $_POST['id'];
         $_name = $_POST['name'];
         $_link = $_POST['link'];
         $_modified_at = date('Y-m-d h:i:s',time());
 
-        //echo $_name;
-
-        //Connect to database
-        $conn = new PDO("mysql:host=localhost;dbname=ecommerce",
-            'root', '');
-        //set the PDO error mode to exception
-        $conn->setAttribute(PDO::ATTR_ERRMODE,
-            PDO::ERRMODE_EXCEPTION);
         $query = "UPDATE `category` SET `name` = :name, 
                                     `link` = :link,
                                     `modified_at` = :modified_at
                 WHERE `category`.`id` = :id";
 
-        $stmt = $conn->prepare($query);
+        $stmt = $this->conn->prepare($query);
 
         $stmt->bindParam(':name', $_name);
         $stmt->bindParam(':id', $_id);
