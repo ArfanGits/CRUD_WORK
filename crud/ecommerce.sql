@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 02, 2022 at 12:47 PM
--- Server version: 5.7.24
--- PHP Version: 7.2.19
+-- Generation Time: Jan 02, 2022 at 04:16 PM
+-- Server version: 5.7.33
+-- PHP Version: 7.4.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -46,8 +46,7 @@ INSERT INTO `admin` (`id`, `name`, `email`, `password`, `phone`, `created_at`, `
 (3, 'ozil', 'ozil10@gmail.com', '786123', '', '2021-12-20 11:02:42', '2021-12-20 11:02:42'),
 (4, 'asd', 'dfg@gmail.com', '123', '', '2021-12-20 11:02:42', '2021-12-20 11:02:42'),
 (5, 'newisti', 'ryan8@yahoo.com', '123456', '', '2021-12-20 11:09:04', '2021-12-20 11:09:29'),
-(6, 'test', 'cd@gmail.com', '123456', '01822266448', '2021-12-20 01:02:40', '2021-12-20 13:02:40'),
-(8, 'testing edit', 'test@yahoo.com', '123456', '01285521961', '2022-01-01 10:05:20', '2022-01-01 10:05:31');
+(9, 'test edit and update', 'someone07@gmail.com', '123456', '01581251', '2022-01-02 02:40:08', '2022-01-02 02:53:32');
 
 -- --------------------------------------------------------
 
@@ -83,7 +82,7 @@ INSERT INTO `banner` (`id`, `title`, `link`, `promotional_message`, `html_banner
 (24, 'name changed', 'new.com', 'something', 'somesome', 0, NULL, '2022-01-02 10:54:44', '2022-01-02 10:55:08', 1),
 (25, 'title changed', 'hshh', 'hsfh1', 'lkfdjgo', 0, NULL, '2022-01-02 11:02:13', '2022-01-02 11:02:28', 0),
 (26, 'a', 'sarfan.com', 'Editing Done', 'hdhdhhd', 0, NULL, '2022-01-02 11:08:09', '2022-01-02 11:08:17', 1),
-(27, 'p', 'sarfan.com', 'dgfr', 'new html', 0, 'IMG_1641100571_blog-img2-913x500.jpg', '2022-01-02 11:16:11', '2022-01-02 11:16:20', 1);
+(27, 'p', 'sarfan.com', 'dgfr', 'new html', 0, 'IMG_1641100571_blog-img2-913x500.jpg', '2022-01-02 11:16:11', '2022-01-02 04:13:58', 1);
 
 -- --------------------------------------------------------
 
@@ -108,12 +107,12 @@ CREATE TABLE `cart` (
 INSERT INTO `cart` (`id`, `product_id`, `product_title`, `qty`, `picture`, `unite_price`, `total_price`) VALUES
 (2, 1564, 'Computer', 2, NULL, 0, 0),
 (4, 412, 'Shoes', 100, 'menu-shoes.png', 0, 0),
-(5, 123563, 'laptop', 1236, 'bottom-banner.jpg', 0, 0),
 (7, 1234, 'Computer1', 5, 'b-logo1-130x50.png', 0, 0),
 (8, 156, 'Just chair', 10, 'custom-img2.jpg', 0, 0),
 (9, 156423, 'Computer', 12, 'product6-700x850.jpg', 0, 0),
 (10, 123, 'chair', 50, 'product1-700x850.jpg', 500, 25000),
-(11, 555, 'table', 10, 'menu-shoes.png', 500, 5000);
+(11, 555, 'table', 10, 'menu-shoes.png', 500, 5000),
+(13, 55, 'Unique Table', 5, 'IMG_1641115964_product2-700x850.jpg', 100, 500);
 
 -- --------------------------------------------------------
 
@@ -136,7 +135,8 @@ CREATE TABLE `category` (
 INSERT INTO `category` (`id`, `name`, `link`, `created_at`, `modified_at`) VALUES
 (3, 'sarfan', 'sarfan.com', '2021-12-20 11:10:27', '2021-12-20 11:10:27'),
 (4, 'sumon', 'sumon.com', '2021-12-20 11:10:27', '2021-12-20 11:10:27'),
-(5, 'Arfan', 'html.com', '2021-12-20 11:12:41', '2021-12-20 11:13:34');
+(5, 'Arfan', 'html.com', '2021-12-20 11:12:41', '2021-12-20 11:13:34'),
+(7, 'Jamminam', 'jsj.com', '2022-01-02 03:41:05', '2022-01-02 03:41:14');
 
 -- --------------------------------------------------------
 
@@ -213,7 +213,8 @@ INSERT INTO `product` (`id`, `title`, `created_at`, `modified_at`, `is_deleted`,
 (33, 'lamp', '2021-12-20 09:49:49', '2021-12-20 10:11:31', 0, 'product5-700x850.jpg', 0),
 (35, 'Istiaq GG', '2021-12-20 09:49:49', '2021-12-20 10:11:31', 0, 'product24-700x850.jpg', 1),
 (39, 'Testing update edited file', '2021-12-30 12:22:47', '2021-12-30 12:29:46', 0, 'custom-img4.jpg', 0),
-(43, 'item5', '2021-12-30 12:45:25', '2021-12-30 12:45:35', 0, 'custom-img1.jpg', 0);
+(43, 'item5', '2021-12-30 12:45:25', '2021-12-30 12:45:35', 0, 'custom-img1.jpg', 0),
+(44, 'Edited Chair', '2022-01-02 04:05:44', '2022-01-02 04:06:58', 0, 'IMG_1641118018_product15-700x850.jpg', 1);
 
 --
 -- Indexes for dumped tables
@@ -269,7 +270,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `banner`
@@ -281,13 +282,13 @@ ALTER TABLE `banner`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `contact`
@@ -305,7 +306,7 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
