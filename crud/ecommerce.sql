@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 01, 2022 at 09:31 PM
--- Server version: 5.7.33
--- PHP Version: 7.4.19
+-- Generation Time: Jan 02, 2022 at 12:47 PM
+-- Server version: 5.7.24
+-- PHP Version: 7.2.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -80,7 +80,10 @@ INSERT INTO `banner` (`id`, `title`, `link`, `promotional_message`, `html_banner
 (19, 'Isti GG', 'istisqr.com', 'hdhhdhd', '', 0, 'custom-img1.jpg', '2021-12-20 10:54:42', '2021-12-20 10:54:42', 0),
 (20, 'test1', 'dsgfadf', 'fef', '', 0, 'custom-img3.jpg', '2021-12-20 11:00:34', '2021-12-20 12:51:09', 1),
 (21, 'jhjhjh', 'dsfgf.com', 'Editing Donebbvbvcbb', '', 0, 'list.svg', '2021-12-20 12:11:19', '2021-12-20 12:11:47', 0),
-(23, 'test edit update', 'test.com', 'hshsh', 'some', 1, 'product8-700x850.jpg', '2022-01-01 11:53:12', '2022-01-01 11:53:47', 0);
+(24, 'name changed', 'new.com', 'something', 'somesome', 0, NULL, '2022-01-02 10:54:44', '2022-01-02 10:55:08', 1),
+(25, 'title changed', 'hshh', 'hsfh1', 'lkfdjgo', 0, NULL, '2022-01-02 11:02:13', '2022-01-02 11:02:28', 0),
+(26, 'a', 'sarfan.com', 'Editing Done', 'hdhdhhd', 0, NULL, '2022-01-02 11:08:09', '2022-01-02 11:08:17', 1),
+(27, 'p', 'sarfan.com', 'dgfr', 'new html', 0, 'IMG_1641100571_blog-img2-913x500.jpg', '2022-01-02 11:16:11', '2022-01-02 11:16:20', 1);
 
 -- --------------------------------------------------------
 
@@ -161,7 +164,7 @@ INSERT INTO `contact` (`id`, `name`, `email`, `subject`, `comment`, `status`, `d
 (5, 'asasa', 'hiyat94186@ailiking.com', 'ffefe', 'fefe', 1, '2021-12-20'),
 (6, 'new', 'sawaf12@gmail.com', 'jet', 'new', 1, '2021-12-20'),
 (7, 'ff', 'gagan.agg5@gmail.com', 'efa', 'fefe', 1, '2021-12-10'),
-(8, 'changes test1', 'test@gmail.com', 'Gmail', 'somesome', 0, '2018-02-14');
+(9, 'Mahmudur Rahman Sadril', 'mrsadril@gmail.com', 'EEE', 'new job', 1, '1999-03-11');
 
 -- --------------------------------------------------------
 
@@ -272,7 +275,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `banner`
 --
 ALTER TABLE `banner`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `cart`
@@ -290,7 +293,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `contact`
 --
 ALTER TABLE `contact`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `orders`

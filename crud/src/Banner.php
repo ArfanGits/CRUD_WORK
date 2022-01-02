@@ -5,42 +5,43 @@ namespace Bitm;
 use PDO;
 
 class Banner{
-    public function index(){
-        session_start();
 
+    public $id = null;
+    public $title = null;
+    public $conn = null;
+
+    public function __construct()
+    {
+        session_start();
         //Connect to database
-        $conn = new PDO("mysql:host=localhost;dbname=ecommerce",
+        $this->conn = new PDO("mysql:host=localhost;dbname=ecommerce",
             'root', '');
         //set the PDO error mode to exception
-        $conn->setAttribute(PDO::ATTR_ERRMODE,
+        $this->conn->setAttribute(PDO::ATTR_ERRMODE,
             PDO::ERRMODE_EXCEPTION);
+    }
 
+
+    public function index(){
 
         $query = "SELECT * FROM `banner`";
 
-        $stmt = $conn->prepare($query);
+        $stmt = $this->conn->prepare($query);
 
         $result = $stmt->execute();
 
         $banners = $stmt->fetchAll();
 
         return $banners;
-
     }
 
     public function show(){
     
         $_id = $_GET['id'];
-        //Connect to database
-        $conn = new PDO("mysql:host=localhost;dbname=ecommerce",
-            'root', '');
-        //set the PDO error mode to exception
-        $conn->setAttribute(PDO::ATTR_ERRMODE,
-            PDO::ERRMODE_EXCEPTION);
 
         $query = "SELECT * FROM `banner` WHERE id = :id";
 
-        $stmt = $conn->prepare($query);
+        $stmt = $this->conn->prepare($query);
 
         $stmt->bindParam(':id', $_id);
 
@@ -52,21 +53,8 @@ class Banner{
     }
 
     public function store(){
-        session_start();
 
-        $approot = $_SERVER['DOCUMENT_ROOT'].'/batch1-arfan/crud/';
-
-        // Working with image
-        $target = $_FILES['picture']['tmp_name'];
-        $destination = $approot.'uploads/' .$_FILES['picture']['name'];
-
-        $isFileMoved = move_uploaded_file($target, $destination);
-        if ($isFileMoved){
-            $_picture = $_FILES['picture']['name'];
-        }
-        else{
-            $_picture = null;
-        }
+        $_picture = $this->upload();
 
         $_title = $_POST['title'];
 
@@ -87,14 +75,8 @@ class Banner{
         $_link = $_POST['link'];
         $_promotional_message = $_POST['promotional_message'];
         $_html_banner = $_POST['html_banner'];
-        //echo $_title;
 
-        //Connect to database
-        $conn = new PDO("mysql:host=localhost;dbname=ecommerce",
-            'root', '');
-        //set the PDO error mode to exception
-        $conn->setAttribute(PDO::ATTR_ERRMODE,
-            PDO::ERRMODE_EXCEPTION);
+        
         $query = "INSERT INTO `banner` (`title`, 
                                         `is_active`,
                                         `is_draft`,
@@ -112,7 +94,7 @@ class Banner{
                         :picture, 
                         :created_at);";
 
-        $stmt = $conn->prepare($query);
+        $stmt = $this->conn->prepare($query);
 
         $result = $stmt->execute(array(
             ':title' => $_title,
@@ -143,20 +125,12 @@ class Banner{
     }
 
     public function delete(){
-        session_start();
 
         $_id = $_GET['id'];
 
-        //Connect to database
-        $conn = new PDO("mysql:host=localhost;dbname=ecommerce",
-            'root', '');
-        //set the PDO error mode to exception
-        $conn->setAttribute(PDO::ATTR_ERRMODE,
-            PDO::ERRMODE_EXCEPTION);
-
         $query = "DELETE FROM `banner` WHERE `banner`.`id` = :id";
 
-        $stmt = $conn->prepare($query);
+        $stmt = $this->conn->prepare($query);
 
         $stmt->bindParam(':id', $_id);
 
@@ -180,16 +154,9 @@ class Banner{
         
         $_id = $_GET['id'];
 
-        //Connect to database
-        $conn = new PDO("mysql:host=localhost;dbname=ecommerce",
-            'root', '');
-        //set the PDO error mode to exception
-        $conn->setAttribute(PDO::ATTR_ERRMODE,
-            PDO::ERRMODE_EXCEPTION);
-
         $query = "SELECT * FROM `banner` WHERE id = :id";
 
-        $stmt = $conn->prepare($query);
+        $stmt = $this->conn->prepare($query);
 
         $stmt->bindParam(':id', $_id);
 
@@ -201,26 +168,9 @@ class Banner{
     }
 
     public function update(){
+    
 
-        session_start();
-
-        $approot = $_SERVER['DOCUMENT_ROOT'].'/batch1-arfan/crud/';
-
-        if($_FILES['picture']['name'] != ''){
-            // Working with image
-            $target = $_FILES['picture']['tmp_name'];
-            $destination = $approot.'uploads/' .$_FILES['picture']['name'];
-
-            $isFileMoved = move_uploaded_file($target, $destination);
-            if ($isFileMoved){
-                $_picture = $_FILES['picture']['name'];
-            }
-            else{
-                $_picture = null;
-            }
-        }else{
-            $_picture = $_POST['old_picture'];
-        }
+        $_picture = $this->upload();
 
         $_id = $_POST['id'];
         $_title = $_POST['title'];
@@ -244,12 +194,6 @@ class Banner{
 
         $_modified_at = date('Y-m-d h:i:s',time());
 
-        //Connect to database
-        $conn = new PDO("mysql:host=localhost;dbname=ecommerce",
-            'root', '');
-        //set the PDO error mode to exception
-        $conn->setAttribute(PDO::ATTR_ERRMODE,
-            PDO::ERRMODE_EXCEPTION);
         $query = "UPDATE `banner` SET `title` = :title, 
                                     `is_active` = :is_active, 
                                     `is_draft` = :is_draft, 
@@ -260,7 +204,7 @@ class Banner{
                                     `modified_at` = :modified_at 
                 WHERE `banner`.`id` = :id";
 
-        $stmt = $conn->prepare($query);
+        $stmt = $this->conn->prepare($query);
 
         $stmt->bindParam(':title', $_title);
         $stmt->bindParam(':is_active', $_is_active);
@@ -286,7 +230,34 @@ class Banner{
         header("location:index.php");
 
         return $result;
+
     }
+
+    private function upload(){
+        $approot = $_SERVER['DOCUMENT_ROOT'].'/batch1-arfan/crud/';
+
+        $_picture = null;
+
+        if($_FILES['picture']['name'] != ""){
+            // Working with image
+            $filename = 'IMG_'.time().'_'.$_FILES['picture']['name'];
+            $target = $_FILES['picture']['tmp_name'];
+            $destination = $approot.'uploads/'.$filename;
+
+            $isFileMoved = move_uploaded_file($target, $destination);
+
+            if ($isFileMoved){
+                $_picture = $filename;
+            }
+        }else{
+            if($_POST['old_picture']){
+                $_picture = $_POST['old_picture'];
+            }
+        }
+        
+        return $_picture;
+    }
+
 }
 
 ?>
