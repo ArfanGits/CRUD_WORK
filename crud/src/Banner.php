@@ -21,7 +21,6 @@ class Banner{
             PDO::ERRMODE_EXCEPTION);
     }
 
-
     public function index(){
 
         $query = "SELECT * FROM `banner`";
