@@ -169,7 +169,6 @@ class Banner{
 
     public function update(){
     
-
         $_picture = $this->upload();
 
         $_id = $_POST['id'];

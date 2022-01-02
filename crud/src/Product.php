@@ -5,19 +5,27 @@ namespace Bitm;
 use PDO;
 
 class Product{
-    public function index(){
-        session_start();
 
+    public $id = null;
+    public $title = null;
+    public $conn = null;
+
+    public function __construct()
+    {
+        session_start();
         //Connect to database
-        $conn = new PDO("mysql:host=localhost;dbname=ecommerce",
+        $this->conn = new PDO("mysql:host=localhost;dbname=ecommerce",
             'root', '');
         //set the PDO error mode to exception
-        $conn->setAttribute(PDO::ATTR_ERRMODE,
+        $this->conn->setAttribute(PDO::ATTR_ERRMODE,
             PDO::ERRMODE_EXCEPTION);
+    }
+
+    public function index(){
         
         $query = "SELECT * FROM `product` WHERE is_deleted = 0";
         
-        $stmt = $conn->prepare($query);
+        $stmt = $this->conn->prepare($query);
         
         $result = $stmt->execute();
         
@@ -29,16 +37,9 @@ class Product{
     public function show(){
         $_id = $_GET['id'];
 
-        //Connect to database
-        $conn = new PDO("mysql:host=localhost;dbname=ecommerce",
-            'root', '');
-        //set the PDO error mode to exception
-        $conn->setAttribute(PDO::ATTR_ERRMODE,
-            PDO::ERRMODE_EXCEPTION);
-
         $query = "SELECT * FROM `product` WHERE id = :id";
 
-        $stmt = $conn->prepare($query);
+        $stmt = $this->conn->prepare($query);
 
         $stmt->bindParam(':id', $_id);
 
@@ -50,21 +51,8 @@ class Product{
     }
 
     public function store(){
-        session_start();
 
-        $approot = $_SERVER['DOCUMENT_ROOT'].'/batch1-arfan/crud/';
-
-        // Working with image
-        $target = $_FILES['picture']['tmp_name'];
-        $destination = $approot.'uploads/' .$_FILES['picture']['name'];
-
-        $isFileMoved = move_uploaded_file($target, $destination);
-        if ($isFileMoved){
-            $_picture = $_FILES['picture']['name'];
-        }
-        else{
-            $_picture = null;
-        }
+        $_picture = $this->upload();
 
         $_title = $_POST['title'];
         //echo $_title;
@@ -83,12 +71,6 @@ class Product{
 
         $_created_at = date('Y-m-d h:i:s',time());
 
-        //Connect to database
-        $conn = new PDO("mysql:host=localhost;dbname=ecommerce",
-            'root', '');
-        //set the PDO error mode to exception
-        $conn->setAttribute(PDO::ATTR_ERRMODE,
-            PDO::ERRMODE_EXCEPTION);
         $query = "INSERT INTO `product` (`title`,
                                         `created_at`,
                                         `is_deleted`,
@@ -100,7 +82,7 @@ class Product{
                         :picture, 
                         :is_active);";
 
-        $stmt = $conn->prepare($query);
+        $stmt = $this->conn->prepare($query);
         $stmt->bindParam(':title', $_title);
         $stmt->bindParam(':created_at', $_created_at);
         $stmt->bindParam(':is_deleted', $_is_deleted);
@@ -125,16 +107,9 @@ class Product{
     public function edit(){
         $_id = $_GET['id'];
 
-        //Connect to database
-        $conn = new PDO("mysql:host=localhost;dbname=ecommerce",
-            'root', '');
-        //set the PDO error mode to exception
-        $conn->setAttribute(PDO::ATTR_ERRMODE,
-            PDO::ERRMODE_EXCEPTION);
-
         $query = "SELECT * FROM `product` WHERE id = :id";
 
-        $stmt = $conn->prepare($query);
+        $stmt = $this->conn->prepare($query);
 
         $stmt->bindParam(':id', $_id);
 
@@ -146,24 +121,8 @@ class Product{
     }
 
     public function update(){
-        session_start();
-        $approot = $_SERVER['DOCUMENT_ROOT'].'/batch1-arfan/crud/';
 
-        if($_FILES['picture']['name'] != ''){
-            // Working with image
-            $target = $_FILES['picture']['tmp_name'];
-            $destination = $approot.'uploads/' .$_FILES['picture']['name'];
-
-            $isFileMoved = move_uploaded_file($target, $destination);
-            if ($isFileMoved){
-                $_picture = $_FILES['picture']['name'];
-            }
-            else{
-                $_picture = null;
-            }
-        }else{
-            $_picture = $_POST['old_picture'];
-        }
+        $_picture = $this->upload();
 
         $_id = $_POST['id'];
         $_title = $_POST['title'];
@@ -183,12 +142,6 @@ class Product{
 
         $_modified_at = date('Y-m-d h:i:s',time());
 
-        //Connect to database
-        $conn = new PDO("mysql:host=localhost;dbname=ecommerce",
-            'root', '');
-        //set the PDO error mode to exception
-        $conn->setAttribute(PDO::ATTR_ERRMODE,
-            PDO::ERRMODE_EXCEPTION);
         $query = "UPDATE `product` 
                 SET `title` = :title, 
                 `picture` = :picture,
@@ -197,7 +150,7 @@ class Product{
                 `modified_at` = :modified_at 
                 WHERE `product`.`id` = :id";
 
-        $stmt = $conn->prepare($query);
+        $stmt = $this->conn->prepare($query);
 
         $stmt->bindParam(':title', $_title);
         $stmt->bindParam(':picture', $_picture);
@@ -219,18 +172,11 @@ class Product{
     }
 
     public function delete(){
-        session_start();
+
         $_id = $_GET['id'];
 
-        //Connect to database
-        $conn = new PDO("mysql:host=localhost;dbname=ecommerce",
-            'root', '');
-        //set the PDO error mode to exception
-        $conn->setAttribute(PDO::ATTR_ERRMODE,
-            PDO::ERRMODE_EXCEPTION);
-
         $query = "DELETE FROM `product` WHERE `product`.`id` = :id";
-        $stmt = $conn->prepare($query);
+        $stmt = $this->conn->prepare($query);
         $stmt->bindParam(':id', $_id);
         $result = $stmt->execute();
 
@@ -247,24 +193,15 @@ class Product{
     }
 
     public function trash(){
-        session_start();
 
         $_id = $_GET['id'];
         $_is_deleted = 1;
-
-
-        //Connect to database
-        $conn = new PDO("mysql:host=localhost;dbname=ecommerce",
-            'root', '');
-        //set the PDO error mode to exception
-        $conn->setAttribute(PDO::ATTR_ERRMODE,
-            PDO::ERRMODE_EXCEPTION);
 
         $query = "UPDATE `product` 
                 SET `is_deleted` = :is_deleted
                 WHERE `product`.`id` = :id";
 
-        $stmt = $conn->prepare($query);
+        $stmt = $this->conn->prepare($query);
 
         $stmt->bindParam(':id', $_id);
         $stmt->bindParam(':is_deleted', $_is_deleted);
@@ -285,18 +222,10 @@ class Product{
     }
 
     public function trash_index(){
-        session_start();
-
-        //Connect to database
-        $conn = new PDO("mysql:host=localhost;dbname=ecommerce",
-            'root', '');
-        //set the PDO error mode to exception
-        $conn->setAttribute(PDO::ATTR_ERRMODE,
-            PDO::ERRMODE_EXCEPTION);
 
         $query = "SELECT * FROM `product` WHERE is_deleted = 1";
 
-        $stmt = $conn->prepare($query);
+        $stmt = $this->conn->prepare($query);
 
         $result = $stmt->execute();
 
@@ -306,24 +235,15 @@ class Product{
     }
 
     public function restore(){
-        session_start();
 
         $_id = $_GET['id'];
         $_is_deleted = 0;
-
-
-        //Connect to database
-        $conn = new PDO("mysql:host=localhost;dbname=ecommerce",
-            'root', '');
-        //set the PDO error mode to exception
-        $conn->setAttribute(PDO::ATTR_ERRMODE,
-            PDO::ERRMODE_EXCEPTION);
 
         $query = "UPDATE `product` 
                 SET `is_deleted` = :is_deleted
                 WHERE `product`.`id` = :id";
 
-        $stmt = $conn->prepare($query);
+        $stmt = $this->conn->prepare($query);
 
         $stmt->bindParam(':id', $_id);
         $stmt->bindParam(':is_deleted', $_is_deleted);
@@ -342,6 +262,31 @@ class Product{
 
         return $result;
     }
+
+    private function upload(){
+        $approot = $_SERVER['DOCUMENT_ROOT'].'/batch1-arfan/crud/';
+
+        $_picture = null;
+
+        if($_FILES['picture']['name'] != ""){
+            // Working with image
+            $filename = 'IMG_'.time().'_'.$_FILES['picture']['name'];
+            $target = $_FILES['picture']['tmp_name'];
+            $destination = $approot.'uploads/'.$filename;
+
+            $isFileMoved = move_uploaded_file($target, $destination);
+
+            if ($isFileMoved){
+                $_picture = $filename;
+            }
+        }else{
+            if($_POST['old_picture']){
+                $_picture = $_POST['old_picture'];
+            }
+        }
+        return $_picture;
+    }
+    
 }
 
 ?>
