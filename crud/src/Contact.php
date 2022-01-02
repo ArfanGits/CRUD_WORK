@@ -5,20 +5,26 @@ namespace Bitm;
 use PDO;
 
 class Contact{
-    public function index(){
-        session_start();
 
+    public $id = null;
+    public $title = null;
+    public $conn = null;
+
+    public function __construct()
+    {
+        session_start();
         //Connect to database
-        $conn = new PDO("mysql:host=localhost;dbname=ecommerce",
+        $this->conn = new PDO("mysql:host=localhost;dbname=ecommerce",
             'root', '');
         //set the PDO error mode to exception
-        $conn->setAttribute(PDO::ATTR_ERRMODE,
+        $this->conn->setAttribute(PDO::ATTR_ERRMODE,
             PDO::ERRMODE_EXCEPTION);
-        
-        
+    }
+
+    public function index(){
         $query = "SELECT * FROM `contact`";
         
-        $stmt = $conn->prepare($query);
+        $stmt = $this->conn->prepare($query);
         
         $result = $stmt->execute();
         
@@ -30,16 +36,9 @@ class Contact{
     public function show(){
         $_id = $_GET['id'];
 
-        //Connect to database
-        $conn = new PDO("mysql:host=localhost;dbname=ecommerce",
-            'root', '');
-        //set the PDO error mode to exception
-        $conn->setAttribute(PDO::ATTR_ERRMODE,
-            PDO::ERRMODE_EXCEPTION);
-
         $query = "SELECT * FROM `contact` WHERE id = :id";
 
-        $stmt = $conn->prepare($query);
+        $stmt = $this->conn->prepare($query);
 
         $stmt->bindParam(':id', $_id);
 
@@ -51,7 +50,6 @@ class Contact{
     }
 
     public function store(){
-        session_start();
 
         $_name = $_POST['name'];
         $_email = $_POST['email'];
@@ -64,20 +62,11 @@ class Contact{
         } else {
             $_status = 0;
         }
-        //echo $_title;
 
-        // $_date = date('Y-m-d h:i:s',time());
-
-        //Connect to database
-        $conn = new PDO("mysql:host=localhost;dbname=ecommerce",
-            'root', '');
-        //set the PDO error mode to exception
-        $conn->setAttribute(PDO::ATTR_ERRMODE,
-            PDO::ERRMODE_EXCEPTION);
         $query = "INSERT INTO `contact` (`name`,`email`,`subject`,`comment`,`status`,`date`) 
                 VALUES (:name, :email, :subject, :comment, :status, :date);";
 
-        $stmt = $conn->prepare($query);
+        $stmt = $this->conn->prepare($query);
 
         $result = $stmt->execute(array(
             ':name' => $_name,
@@ -106,21 +95,11 @@ class Contact{
     }
 
     public function delete(){
-                
-        session_start();
-
         $_id = $_GET['id'];
-
-        //Connect to database
-        $conn = new PDO("mysql:host=localhost;dbname=ecommerce",
-            'root', '');
-        //set the PDO error mode to exception
-        $conn->setAttribute(PDO::ATTR_ERRMODE,
-            PDO::ERRMODE_EXCEPTION);
 
         $query = "DELETE FROM `contact` WHERE `contact`.`id` = :id";
 
-        $stmt = $conn->prepare($query);
+        $stmt = $this->conn->prepare($query);
 
         $stmt->bindParam(':id', $_id);
 
@@ -143,16 +122,9 @@ class Contact{
     public function edit(){
         $_id = $_GET['id'];
 
-        //Connect to database
-        $conn = new PDO("mysql:host=localhost;dbname=ecommerce",
-            'root', '');
-        //set the PDO error mode to exception
-        $conn->setAttribute(PDO::ATTR_ERRMODE,
-            PDO::ERRMODE_EXCEPTION);
-
         $query = "SELECT * FROM `contact` WHERE id = :id";
 
-        $stmt = $conn->prepare($query);
+        $stmt = $this->conn->prepare($query);
 
         $stmt->bindParam(':id', $_id);
 
@@ -164,7 +136,6 @@ class Contact{
     }
 
     public function update(){
-        session_start();
 
         $_id = $_POST['id'];
         $_name = $_POST['name'];
@@ -180,12 +151,6 @@ class Contact{
             $_status = 0;
         }
 
-        //Connect to database
-        $conn = new PDO("mysql:host=localhost;dbname=ecommerce",
-            'root', '');
-        //set the PDO error mode to exception
-        $conn->setAttribute(PDO::ATTR_ERRMODE,
-            PDO::ERRMODE_EXCEPTION);
         $query = "UPDATE `contact` SET `name` = :name, 
                                     `email` = :email, 
                                     `subject` = :subject,
@@ -194,7 +159,7 @@ class Contact{
                                     `status` = :status
                 WHERE `contact`.`id` = :id";
 
-        $stmt = $conn->prepare($query);
+        $stmt = $this->conn->prepare($query);
 
         $stmt->bindParam(':id', $_id);
         $stmt->bindParam(':name', $_name);

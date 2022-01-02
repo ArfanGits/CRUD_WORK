@@ -25,7 +25,7 @@ echo "</pre>";*/
 <section>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-6">
+            <div class="col-md-7">
                 <div class="fs-3 text-success">
                     <?php
                     echo $_SESSION['message'];
