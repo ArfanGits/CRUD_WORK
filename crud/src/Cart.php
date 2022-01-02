@@ -5,20 +5,27 @@ namespace Bitm;
 use PDO;
 
 class Cart{
-    public function index(){
-        session_start();
 
+    public $id = null;
+    public $title = null;
+    public $conn = null;
+
+    public function __construct()
+    {
+        session_start();
         //Connect to database
-        $conn = new PDO("mysql:host=localhost;dbname=ecommerce",
+        $this->conn = new PDO("mysql:host=localhost;dbname=ecommerce",
             'root', '');
         //set the PDO error mode to exception
-        $conn->setAttribute(PDO::ATTR_ERRMODE,
+        $this->conn->setAttribute(PDO::ATTR_ERRMODE,
             PDO::ERRMODE_EXCEPTION);
+    }
 
+    public function index(){
 
         $query = "SELECT * FROM `cart`";
 
-        $stmt = $conn->prepare($query);
+        $stmt = $this->conn->prepare($query);
 
         $result = $stmt->execute();
 
@@ -31,16 +38,9 @@ class Cart{
         
         $_id = $_GET['id'];
 
-        //Connect to database
-        $conn = new PDO("mysql:host=localhost;dbname=ecommerce",
-            'root', '');
-        //set the PDO error mode to exception
-        $conn->setAttribute(PDO::ATTR_ERRMODE,
-            PDO::ERRMODE_EXCEPTION);
-
         $query = "SELECT * FROM `cart` WHERE id = :id";
 
-        $stmt = $conn->prepare($query);
+        $stmt = $this->conn->prepare($query);
 
         $stmt->bindParam(':id', $_id);
 
@@ -51,21 +51,8 @@ class Cart{
     }
 
     public function store(){
-        session_start();
 
-        $approot = $_SERVER['DOCUMENT_ROOT'].'/batch1-arfan/crud/';
-
-        // Working with image
-        $target = $_FILES['picture']['tmp_name'];
-        $destination = $approot.'uploads/' .$_FILES['picture']['name'];
-
-        $isFileMoved = move_uploaded_file($target, $destination);
-        if ($isFileMoved){
-            $_picture = $_FILES['picture']['name'];
-        }
-        else{
-            $_picture = null;
-        }
+        $_picture = $this->upload();
 
         $_product_id = $_POST['product_id'];
         $_product_title = $_POST['product_title'];
@@ -74,14 +61,6 @@ class Cart{
 
         $_total_price = ($_unite_price*$_qty);
 
-        //echo $_title;
-
-        //Connect to database
-        $conn = new PDO("mysql:host=localhost;dbname=ecommerce",
-            'root', '');
-        //set the PDO error mode to exception
-        $conn->setAttribute(PDO::ATTR_ERRMODE,
-            PDO::ERRMODE_EXCEPTION);
         $query = "INSERT INTO `cart` (`product_id`,
                                     `product_title`,
                                     `qty`,
@@ -95,7 +74,7 @@ class Cart{
                         :total_price, 
                         :picture);";
 
-        $stmt = $conn->prepare($query);
+        $stmt = $this->conn->prepare($query);
 
         $result = $stmt->execute(array(
             ':product_id' => $_product_id,
@@ -105,10 +84,6 @@ class Cart{
             ':total_price' => $_total_price,
             ':picture' => $_picture
         ));
-
-        //$result = $stmt->execute();
-
-        //var_dump($result);
 
         if ($result){
             $_SESSION['message'] = "Cart is added successfully";
@@ -123,20 +98,11 @@ class Cart{
     }
 
     public function delete(){
-        session_start();
-
         $_id = $_GET['id'];
-
-        //Connect to database
-        $conn = new PDO("mysql:host=localhost;dbname=ecommerce",
-            'root', '');
-        //set the PDO error mode to exception
-        $conn->setAttribute(PDO::ATTR_ERRMODE,
-            PDO::ERRMODE_EXCEPTION);
 
         $query = "DELETE FROM `cart` WHERE `cart`.`id` = :id";
 
-        $stmt = $conn->prepare($query);
+        $stmt = $this->conn->prepare($query);
 
         $stmt->bindParam(':id', $_id);
 
@@ -159,16 +125,9 @@ class Cart{
     public function edit(){
         $_id = $_GET['id'];
 
-        //Connect to database
-        $conn = new PDO("mysql:host=localhost;dbname=ecommerce",
-            'root', '');
-        //set the PDO error mode to exception
-        $conn->setAttribute(PDO::ATTR_ERRMODE,
-            PDO::ERRMODE_EXCEPTION);
-
         $query = "SELECT * FROM `cart` WHERE id = :id";
 
-        $stmt = $conn->prepare($query);
+        $stmt = $this->conn->prepare($query);
 
         $stmt->bindParam(':id', $_id);
 
@@ -180,24 +139,8 @@ class Cart{
     }
 
     public function update(){
-        session_start();
-        $approot = $_SERVER['DOCUMENT_ROOT'].'/batch1-arfan/crud/';
-
-        if($_FILES['picture']['name'] != ''){
-            // Working with image
-            $target = $_FILES['picture']['tmp_name'];
-            $destination = $approot.'uploads/' .$_FILES['picture']['name'];
-
-            $isFileMoved = move_uploaded_file($target, $destination);
-            if ($isFileMoved){
-                $_picture = $_FILES['picture']['name'];
-            }
-            else{
-                $_picture = null;
-            }
-        }else{
-            $_picture = $_POST['old_picture'];
-        }
+        
+        $_picture = $this->upload();
 
         $_id = $_POST['id'];
         $_product_id = $_POST['product_id'];
@@ -205,14 +148,7 @@ class Cart{
         $_qty = $_POST['qty'];
         $_unite_price = $_POST['unite_price'];
         $_total_price = ($_unite_price*$_qty);
-        //echo $_title;
-
-        //Connect to database
-        $conn = new PDO("mysql:host=localhost;dbname=ecommerce",
-            'root', '');
-        //set the PDO error mode to exception
-        $conn->setAttribute(PDO::ATTR_ERRMODE,
-            PDO::ERRMODE_EXCEPTION);
+        
         $query = "UPDATE `cart` SET `product_id` = :product_id, 
                                     `product_title` = :product_title, 
                                     `qty` = :qty,
@@ -221,7 +157,7 @@ class Cart{
                                     `total_price` = :total_price
                 WHERE `cart`.`id` = :id";
 
-        $stmt = $conn->prepare($query);
+        $stmt = $this->conn->prepare($query);
 
         $stmt->bindParam(':id', $_id);
         $stmt->bindParam(':product_id', $_product_id);
@@ -245,6 +181,31 @@ class Cart{
         header("location:index.php");
 
         return $result;
+    }
+
+    private function upload(){
+        $approot = $_SERVER['DOCUMENT_ROOT'].'/batch1-arfan/crud/';
+
+        $_picture = null;
+
+        if($_FILES['picture']['name'] != ""){
+            // Working with image
+            $filename = 'IMG_'.time().'_'.$_FILES['picture']['name'];
+            $target = $_FILES['picture']['tmp_name'];
+            $destination = $approot.'uploads/'.$filename;
+
+            $isFileMoved = move_uploaded_file($target, $destination);
+
+            if ($isFileMoved){
+                $_picture = $filename;
+            }
+        }else{
+            if($_POST['old_picture']){
+                $_picture = $_POST['old_picture'];
+            }
+        }
+        
+        return $_picture;
     }
 }
 
