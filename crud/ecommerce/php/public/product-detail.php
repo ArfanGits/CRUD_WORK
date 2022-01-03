@@ -1,59 +1,14 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-
-    <link href="css/style.css" rel="stylesheet">
-
-    <title>Ecommerce</title>
-</head>
+<?php
+include_once('../views/elements/head.php');
+?>
 <body>
 
-<!--Markup for Header-->
-<header>
-    <div id="top-header">
-
-    </div>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#myNav" aria-controls="myNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span><i class="fas fa-bars"></i></span>
-            </button>
-            <div class="collapse navbar-collapse" id="myNav">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.html">HOME</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="product.html">LIVING ROOM</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">DINING & BAR</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">BEDROOM</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">KITCHEN</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">HOME IMPROVEMENT</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">CUSTOM</a>
-                    </li>
-
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-</header>
+<?php
+include_once('../views/elements/header.php');
+include_once('../views/elements/navbar.php');
+?>
 
 <!--Markup for breadcrumb-->
 <section id="breadcrumb" class="mt-3">
@@ -90,25 +45,13 @@
             </div>
 
             <div class="col-md-7">
-                <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet provident quis velit voluptate? A
-                    asperiores autem fuga fugiat, laborum molestias nesciunt non obcaecati odit quod soluta temporibus
-                    ut vel voluptatibus?
-                </div>
-                <div>Ad aliquam aliquid cupiditate deserunt dignissimos dolores eaque error facere hic illo in nihil non
-                    nostrum nulla placeat quae repellat sed ullam, unde velit, vero voluptatem, voluptates! Accusantium
-                    inventore, quidem.
-                </div>
-                <div>Ab eveniet id perferendis provident repellat. Accusantium consectetur cumque doloribus esse eum
-                    expedita magnam officia quam quis sint. Accusamus aspernatur, assumenda consequatur illum ipsum quam
-                    reiciendis sit tempora temporibus vero?
-                </div>
-                <div>Asperiores, consequuntur debitis ducimus maiores modi nesciunt possimus quaerat quam! Ab aliquam
-                    amet dignissimos dolores enim facere fuga laborum laudantium modi non omnis, placeat quam quidem
-                    repudiandae soluta sunt voluptatum.
-                </div>
-                <div>Accusantium aliquam cupiditate dolore doloremque doloribus ea eius eos, et fuga fugiat harum hic id
-                    ipsa iure neque odio perferendis praesentium quisquam quos repellat repudiandae vel veniam voluptas!
-                    Cum, reprehenderit!
+            <div class="card">
+                   <div class="card-body">
+                        <h5 class="card-title" title="Grandpa Rocking Chair"> <a href="product-detail.php">Grandpa Rocking Chair</a></h5>
+                        <p class="card-text"><i class="fas fa-star  fa-xs"></i> <i class="fas fa-star fa-xs"></i> <i class="fas fa-star fa-xs"></i> <i class="fas fa-star fa-xs"></i> <i class="fas fa-star fa-xs"></i></p>
+                        <p>&dollar;100</p>
+                        <p><button type="button" class="btn btn-danger">Add to cart</button></p>
+                    </div>
                 </div>
             </div>
         </div>
