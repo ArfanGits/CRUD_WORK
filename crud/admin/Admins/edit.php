@@ -4,14 +4,10 @@ include_once($_SERVER['DOCUMENT_ROOT']."/batch1-arfan/crud/config.php");
 
 use Bitm\Admin;
 
+$_id = $_GET['id'];
 $_admin = new Admin();
 
-$admin = $_admin->edit();
-
-/*echo "<pre>";
-print_r($product);
-echo "</pre>";*/
-
+$admin = $_admin->edit($_id);
 ?>
 
 <!doctype html>
@@ -27,6 +23,12 @@ echo "</pre>";*/
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-5">
+            <div class="fs-4 text-danger">
+                        <?php
+                        echo $_SESSION['message'];
+                        $_SESSION['message'] = "";
+                        ?>
+                </div>
                 <h1 class="text-center mb-4">Edit Admin</h1>
                 <form method="post" action="update.php" enctype="multipart/form-data">
                     <div class="mb-3 row">

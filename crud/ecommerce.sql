@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 03, 2022 at 12:31 PM
--- Server version: 5.7.24
--- PHP Version: 7.2.19
+-- Generation Time: Jan 03, 2022 at 06:58 PM
+-- Server version: 5.7.33
+-- PHP Version: 7.4.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -46,7 +46,8 @@ INSERT INTO `admin` (`id`, `name`, `email`, `password`, `phone`, `created_at`, `
 (3, 'ozil', 'ozil10@gmail.com', '786123', '', '2021-12-20 11:02:42', '2021-12-20 11:02:42'),
 (4, 'asd', 'dfg@gmail.com', '123', '', '2021-12-20 11:02:42', '2021-12-20 11:02:42'),
 (5, 'newisti', 'ryan8@yahoo.com', '123456', '', '2021-12-20 11:09:04', '2021-12-20 11:09:29'),
-(9, 'test edit and update', 'someone07@gmail.com', '123456', '01581251', '2022-01-02 02:40:08', '2022-01-02 02:53:32');
+(9, 'test edit and update', 'someone07@gmail.com', '123456', '01581251', '2022-01-02 02:40:08', '2022-01-02 02:53:32'),
+(10, 'new', 'store@gmail.com', '456123', '0561621625', '2022-01-03 06:29:13', '2022-01-03 06:45:44');
 
 -- --------------------------------------------------------
 
@@ -270,7 +271,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `banner`

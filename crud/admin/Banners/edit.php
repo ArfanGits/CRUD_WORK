@@ -5,10 +5,9 @@ include_once($_SERVER['DOCUMENT_ROOT']."/batch1-arfan/crud/config.php");
 use Bitm\Banner;
 
 $_id = $_GET['id'];
-
 $_banner = new Banner();
-$banner = $_banner->edit($_id);
 
+$banner = $_banner->edit($_id);
 ?>
 
 <!doctype html>

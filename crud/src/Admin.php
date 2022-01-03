@@ -37,28 +37,24 @@ class Admin{
         
     }
 
-    public function show(){
-        $_id = $_GET['id'];
+    public function show($id){
         
         $query = "SELECT * FROM `admin` WHERE id = :id";
 
         $stmt = $this->conn->prepare($query);
-
-        $stmt->bindParam(':id', $_id);
+        $stmt->bindParam(':id', $id);
 
         $result = $stmt->execute();
-
         $admin = $stmt->fetch();
-
         return $admin;
     }
 
-    public function store(){
+    public function store($data){
 
-        $_name = $_POST['name'];
-        $_email = $_POST['email'];
-        $_password = $_POST['password'];
-        $_phone = $_POST['phone'];
+        $_name = $data['name'];
+        $_email = $data['email'];
+        $_password = $data['password'];
+        $_phone = $data['phone'];
 
         $_created_at = date('Y-m-d h:i:s', time());
 
@@ -75,11 +71,6 @@ class Admin{
             ':created_at' => $_created_at
         ));
 
-        //$result = $stmt->execute();
-
-        //var_dump($result);
-
-
         if ($result) {
             $_SESSION['message'] = "Admin is added successfully";
         } else {
@@ -88,58 +79,42 @@ class Admin{
 
         // this is for the location set to store.php to main home page index.php
         header("location:index.php");
-
         return $result;
     }
 
-    public function delete(){
-        $_id = $_GET['id'];
-
+    public function delete($id){
         $query = "DELETE FROM `admin` WHERE `admin`.`id` = :id";
-
         $stmt = $this->conn->prepare($query);
-
-        $stmt->bindParam(':id', $_id);
+        $stmt->bindParam(':id', $id);
 
         $result = $stmt->execute();
-
-        //var_dump($result);
-
         if ($result){
             $_SESSION['message'] = "Admin is deleted successfully";
         }else{
             $_SESSION['message'] = "Admin is not deleted";
         }
-
         // this is for the location set to store.php to main home page index.php
         header("location:index.php");
-
         return $result;
     }
 
-    public function edit(){
-        $_id = $_GET['id'];
+    public function edit($id){
 
         $query = "SELECT * FROM `admin` WHERE id = :id";
-
         $stmt = $this->conn->prepare($query);
-
-        $stmt->bindParam(':id', $_id);
-
+        $stmt->bindParam(':id', $id);
         $result = $stmt->execute();
-
         $admin = $stmt->fetch();
-
         return $admin;
     }
 
-    public function update(){
+    public function update($data){
 
-        $_id = $_POST['id'];
-        $_name = $_POST['name'];
-        $_email = $_POST['email'];
-        $_phone = $_POST['phone'];
-        $_password = $_POST['password'];
+        $_id = $data['id'];
+        $_name = $data['name'];
+        $_email = $data['email'];
+        $_phone = $data['phone'];
+        $_password = $data['password'];
         $_modified_at = date('Y-m-d h:i:s',time());
        
         $query = "UPDATE `admin` SET `name` = :name, 
