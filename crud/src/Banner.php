@@ -34,15 +34,13 @@ class Banner{
         return $banners;
     }
 
-    public function show(){
-    
-        $_id = $_GET['id'];
+    public function show($id){
 
         $query = "SELECT * FROM `banner` WHERE id = :id";
 
         $stmt = $this->conn->prepare($query);
 
-        $stmt->bindParam(':id', $_id);
+        $stmt->bindParam(':id', $id);
 
         $result = $stmt->execute();
 
@@ -51,29 +49,29 @@ class Banner{
         return $banner;
     }
 
-    public function store(){
+    public function store($data){
 
         $_picture = $this->upload();
 
-        $_title = $_POST['title'];
+        $_title = $data['title'];
 
-        if (array_key_exists('is_active', $_POST)) {
-            $_is_active = $_POST['is_active'];
+        if (array_key_exists('is_active', $data)) {
+            $_is_active = $data['is_active'];
         } else {
             $_is_active = 0;
         }
 
-        if (array_key_exists('is_draft', $_POST)) {
-            $_is_draft = $_POST['is_draft'];
+        if (array_key_exists('is_draft', $data)) {
+            $_is_draft = $data['is_draft'];
         } else {
             $_is_draft = 0;
         }
 
         $_created_at = date('Y-m-d h:i:s',time());
 
-        $_link = $_POST['link'];
-        $_promotional_message = $_POST['promotional_message'];
-        $_html_banner = $_POST['html_banner'];
+        $_link = $data['link'];
+        $_promotional_message = $data['promotional_message'];
+        $_html_banner = $data['html_banner'];
 
         
         $query = "INSERT INTO `banner` (`title`, 
@@ -123,15 +121,13 @@ class Banner{
         return $result;
     }
 
-    public function delete(){
-
-        $_id = $_GET['id'];
+    public function delete($id){
 
         $query = "DELETE FROM `banner` WHERE `banner`.`id` = :id";
 
         $stmt = $this->conn->prepare($query);
 
-        $stmt->bindParam(':id', $_id);
+        $stmt->bindParam(':id', $id);
 
         $result = $stmt->execute();
 
@@ -149,15 +145,13 @@ class Banner{
         return $result;
     }
 
-    public function edit(){
+    public function edit($id){
         
-        $_id = $_GET['id'];
-
         $query = "SELECT * FROM `banner` WHERE id = :id";
 
         $stmt = $this->conn->prepare($query);
 
-        $stmt->bindParam(':id', $_id);
+        $stmt->bindParam(':id', $id);
 
         $result = $stmt->execute();
 
@@ -166,28 +160,28 @@ class Banner{
         return $banner;
     }
 
-    public function update(){
+    public function update($data){
     
         $_picture = $this->upload();
 
-        $_id = $_POST['id'];
-        $_title = $_POST['title'];
+        $_id = $data['id'];
+        $_title = $data['title'];
 
-        if (array_key_exists('is_active', $_POST)) {
-            $_is_active = $_POST['is_active'];
+        if (array_key_exists('is_active', $data)) {
+            $_is_active = $data['is_active'];
         } else {
             $_is_active = 0;
         }
 
-        if (array_key_exists('is_draft', $_POST)) {
-            $_is_draft = $_POST['is_draft'];
+        if (array_key_exists('is_draft', $data)) {
+            $_is_draft = $data['is_draft'];
         } else {
             $_is_draft = 0;
         }
 
-        $_link = $_POST['link'];
-        $_promotional_message = $_POST['promotional_message'];
-        $_html_banner = $_POST['html_banner'];
+        $_link = $data['link'];
+        $_promotional_message = $data['promotional_message'];
+        $_html_banner = $data['html_banner'];
         //echo $_title;
 
         $_modified_at = date('Y-m-d h:i:s',time());
@@ -255,7 +249,6 @@ class Banner{
         
         return $_picture;
     }
-
 }
 
 ?>
