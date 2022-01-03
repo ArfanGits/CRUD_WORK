@@ -1,0 +1,289 @@
+@import url(bootstrap.min.css);
+@import url(all.min.css);
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+
+
+body{
+    font-family: 'PT Sans', sans-serif;
+}
+
+header .bg-light{
+    background-color: #4a4a4a !important;
+}
+
+header .navbar{
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+header .navbar-light .navbar-nav .nav-link{
+    color: #fff;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    font-weight: 400;
+}
+
+header .navbar-light .navbar-nav .nav-link.active{
+    color: #bea285;
+}
+
+header .navbar-light .navbar-nav .nav-item{
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+header .navbar-light .navbar-nav .nav-item:hover{
+    background-color: #f8f8f8;
+}
+
+header .navbar-light .navbar-nav .nav-link:hover{
+    color: #6c6c6c;
+}
+
+header .navbar-light .navbar-nav .active:hover{
+    color: #bea285;
+}
+
+header .navbar .navbar-toggler span{
+    color: #f8f8f8;
+}
+
+/*Style for Best Sellers*/
+
+section .container .best-seller{
+    border-bottom: 1px #e5e5e5 solid;
+}
+
+section .container .best-seller h1{
+    font-size: 1.25rem;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    color: #000;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+section .container .best-seller h1 span{
+    font-weight: 400;
+    font-style: normal;
+}
+
+section .container .card{
+    border: none;
+}
+
+section .container .card .card-body .card-title{
+    font-size: 0.9rem;
+}
+section .container .card .card-body .card-title a{
+    text-decoration: none;
+    color: #000;
+    font-weight: normal;
+    letter-spacing: 0.5px;
+}
+
+section .container .card .card-body .card-text{
+    color: #ccc;
+    font-size: 0.8rem;
+}
+
+section .container .card .card-body p:nth-child(3){
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: #000;
+}
+
+section .container .card .card-body .btn-danger{
+    background-color: #fff;
+    color: #666;
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    line-height: normal;
+    padding: 8px 12px;
+    text-transform: uppercase;
+    border: 1px #d1d1d1 solid;
+    border-radius: 0;
+}
+
+section .container .card .card-body p:nth-child(3) del{
+    color: #ccc;
+    font-weight: normal;
+}
+
+/*Style for special products*/
+#special-products .container .row .col-md-6 .countdown{
+    background-image: url("../img/deals-bg.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+#special-products .container .row .col-md-6 .box-timer h3 {
+    color: #ef4749;
+    font-size: 2.5rem;
+    margin: 0 auto 10px;
+    font-weight: 400;
+    display: block;
+    padding: 0;
+    text-align: center;
+    letter-spacing: 0;
+}
+
+#special-products .container .row .col-md-6 .box-timer .starSeparator {
+    display: inline-block;
+    text-align: center;
+    height: 1px;
+    width: 5.5rem;
+    background-color: #333;
+    margin-top: 1rem;
+}
+
+#special-products .container .row .col-md-6 .box-timer p {
+    color: #666;
+    font-size: 1rem;
+    text-align: center;
+    padding: 1.5rem 4rem 0;
+}
+
+#special-products .container .row .col-md-6 .box-timer .btn-danger{
+    text-transform: uppercase;
+    border-radius: 0;
+    font-size: 0.8rem;
+    margin-top: 2.3rem;
+    padding: 0.6rem 1.5rem;
+}
+
+#special-products .container .row .col-md-6 .box-timer .btn-danger span{
+    padding-right: 0.6rem;
+    letter-spacing: 1px;
+}
+
+#special-products .container .row .col-md-6 .box-timer .btn-danger i{
+    font-size: 1.1rem;
+    position: relative;
+    top: 3px;
+}
+
+
+
+/*Style for Countdown*/
+/* Deals of the day ***************/
+#special-products .timer-grid {
+    overflow: hidden;
+    display: inline-block;
+}
+#special-products .timer-grid .box-time-date {
+    background: #fff;
+    font-size: 10px;
+    color: #999;
+    min-width: 100px;
+    min-height: 100px;
+    text-align: center;
+    margin-top: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-top: 20px;
+}
+#special-products .timer-grid .day.box-time-date {
+    background: #000;
+    border-color: #000 !important
+}
+#special-products .timer-grid .day.box-time-date span {
+    color: #fff
+}
+#special-products .timer-grid .day.box-time-date {
+    color: #fff
+}
+#special-products .timer-grid .box-time-date span {
+    display: block;
+    font-size: 24px;
+    color: #000;
+    margin-top: 6px;
+}
+#special-products .box-timer {
+    text-align: center;
+    margin-top: 0;
+    position: relative;
+    left: 0;
+    top: 0
+}
+#special-products .timer-grid .box-time-date span {
+    display: block;
+    font-size: 20px;
+    color: #f28083;
+    margin-top: 6px;
+}
+
+/*Style for Product page*/
+
+/*Style for Accordion*/
+.accordion-body {
+    padding: 0 1.25rem;
+}
+
+.accordion-body .nav-link{
+    color: #000;
+}
+.accordion-item {
+    background-color: #fff;
+    border: none;
+}
+.accordion-button:not(.collapsed) {
+    color: #000;
+     background-color: transparent;
+    box-shadow: none;
+}
+.accordion-button {
+    position: relative;
+    display: block;
+    align-items: center;
+    font-size: 0.8rem;
+}
+.accordion-button i{
+    position: absolute;
+    right: 2rem;
+    font-size: 0.7rem;
+}
+#wrapper .accordion-button::after {
+    background-image: none;
+    background-repeat: unset;
+    background-size: 1.25rem;
+}
+
+.accordion-button:focus{
+    border-color: #fff;
+    box-shadow: none;
+}
+
+.accordion-button:not(.collapsed) .fa-plus::before{
+    content: '-';
+    font-size: 2rem;
+    position: absolute;
+    bottom: -1.2rem;
+    right: 0;
+
+}
+
+#wrapper .container h1{
+    border-bottom: 2px solid #333;
+    color: #000;
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+    line-height: normal;
+    margin: 0;
+    padding: 0 0 10px 0;
+    text-transform: uppercase;
+}
+
+
