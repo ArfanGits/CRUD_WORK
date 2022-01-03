@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 02, 2022 at 04:16 PM
--- Server version: 5.7.33
--- PHP Version: 7.4.19
+-- Generation Time: Jan 03, 2022 at 12:31 PM
+-- Server version: 5.7.24
+-- PHP Version: 7.2.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -82,7 +82,7 @@ INSERT INTO `banner` (`id`, `title`, `link`, `promotional_message`, `html_banner
 (24, 'name changed', 'new.com', 'something', 'somesome', 0, NULL, '2022-01-02 10:54:44', '2022-01-02 10:55:08', 1),
 (25, 'title changed', 'hshh', 'hsfh1', 'lkfdjgo', 0, NULL, '2022-01-02 11:02:13', '2022-01-02 11:02:28', 0),
 (26, 'a', 'sarfan.com', 'Editing Done', 'hdhdhhd', 0, NULL, '2022-01-02 11:08:09', '2022-01-02 11:08:17', 1),
-(27, 'p', 'sarfan.com', 'dgfr', 'new html', 0, 'IMG_1641100571_blog-img2-913x500.jpg', '2022-01-02 11:16:11', '2022-01-02 04:13:58', 1);
+(27, 'Bitm PHP', 'sarfan.com', 'sum sum', 'new html', 0, 'IMG_1641100571_blog-img2-913x500.jpg', '2022-01-02 11:16:11', '2022-01-03 11:51:37', 1);
 
 -- --------------------------------------------------------
 
