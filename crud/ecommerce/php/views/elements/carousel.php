@@ -1,4 +1,5 @@
-<?php?>
+<?php
+?>
 
 <!--Markup for Carousel-->
 <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">

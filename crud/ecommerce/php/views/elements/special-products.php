@@ -1,4 +1,5 @@
-<?php?>
+<?php
+?>
 <!--Markup for SPECIAL PRODUCTS-->
 <section id="special-products" class="mt-2">
     <div class="container">
