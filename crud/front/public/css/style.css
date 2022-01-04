@@ -1,0 +1,385 @@
+@import url(bootstrap.min.css);
+@import url(all.min.css);
+
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+
+body {
+    font-family: 'PT Sans', sans-serif;
+}
+
+
+
+/*Style for Header*/
+header .bg-light {
+    background-color: #4a4a4a !important;
+}
+
+header .navbar {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+header .navbar-light .navbar-nav .nav-link {
+    color: #fff;
+    font-size: 11px;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+header .navbar-light .navbar-nav .nav-link.active {
+    color: #bea285;
+}
+
+header .navbar-light .navbar-nav .nav-item {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+header .navbar-light .navbar-nav .nav-item:hover {
+    background-color: #f8f8f8;
+    color: #6c6c6c;
+}
+
+header .navbar-light .navbar-toggler span {
+    color: #f8f8f8;
+}
+/* background for countdown */
+#special-products .container .row .col-md-6 .box-timer{
+    background-image:url(../img/deals-bg.png) ;
+    background-repeat: none;
+    background-position: center;
+    background-size: cover;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+
+}
+#special-products .container .row .col-md-6 .box-timer h3{
+    color:#ef4749;
+    font-size: 2.5rem;
+    margin :0 auto 10px;
+    font-weight: 400;
+    display: block;
+    padding: 0;
+    text-align: center;
+    letter-spacing: 0;
+
+}
+#special-products .container .row .col-md-6 .box-timer .starSeparator{
+    display:inline-block;
+    font-size: 20rem;
+    text-align: center;
+    height: 1px;
+    width: 90px;
+    background-color: #333;
+    margin-top: 1 rem;
+}
+#special-products .container .row .col-md-6 .box-timer .offer-slider p{
+    color: #666;
+    font-size: 1 rem;
+    text-align: center;
+    padding:1.5rem 4rem 0;
+    
+}
+#special-products .container .row .col-md-6 .box-timer .shop-now .btn-danger{
+ padding: 0.8rem 1.5rem;
+ font-size: 13px;
+ text-transform: uppercase;
+ color: #fff;
+ letter-spacing:  1px;
+ display: inline-block;
+ margin-top: 2.2rem;
+ background: #ef4749;
+ border: 1px #ef4749 solid;
+ margin-bottom :0;
+ border-radius: 0.2rem;
+
+
+}
+
+#special-products .container .row .col-md-6 .box-timer .shop-now .btn-danger span{
+    display: inline-block;
+    padding-right: 0.6rem;
+}
+
+/*Style for Best Sellers Section*/
+
+#best-sellers .container .best-seller {
+    border-bottom: 1px #e5e5e5 solid;
+}
+
+section .container h2 {
+    font-weight: 600;
+    font-size: 1.25rem;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding-top: 0.75rem;
+    color: #000;
+}
+
+section .container h2 span {
+    font-weight: 400;
+    font-style: normal;
+}
+
+section .card {
+    border: none;
+}
+
+section .card .card-body .card-title a {
+    color: #000;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: normal;
+    letter-spacing: 0.5px;
+}
+
+section .card .card-body .card-text {
+    color: #ccc;
+    font-size: 10px;
+    ;
+}
+
+section .card .card-body .dollar {
+    font-weight: 600;
+}
+
+section .card .card-body .btn-light {
+    background-color: transparent;
+}
+
+section .card .card-body .add-to-card {
+    border: 1px #d1d1d1 solid;
+}
+
+section .card .card-body p del {
+    color: #ccc;
+    font-size: 0.9rem;
+    font-weight: normal;
+}
+
+
+/* Style for Product page */
+
+/* Style for accordion */
+#wrapper .accordion-button::after {
+    flex-shrink: 0;
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-left: auto;
+    content: "";
+    background-image: none;
+    background-repeat: no-repeat;
+    background-size: 1.25rem;
+    transition: transform .2s ease-in-out;
+}
+
+#wrapper .accordion-button:not(.collapsed)::after {
+    background-image: none;
+    transform: none;
+}
+
+#wrapper .accordion-item {
+    position: relative;
+    background-color: #fff;
+    border: none;
+}
+
+#wrapper .accordion-button {
+    display: inline-block;
+    align-items: unset;
+    font-size: 0.8rem;
+    background-color: #fff;
+    border-color: #fff;
+    transform: none;
+}
+
+#wrapper .accordion-item i {
+    position: absolute;
+    right: 4.5rem;
+    top: 2rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    display: inline-block;
+}
+
+#wrapper .accordion-button:focus {
+    z-index: 3;
+    border-color: transparent;
+    outline: 0;
+    box-shadow: none;
+}
+
+section .container h2 {
+    display: block;
+}
+
+#wrapper .accordion-button:not(.collapsed) .fa-plus::before {
+    content: '-';
+    display: inline-block;
+    font-size: 2rem;
+    position: absolute;
+    top: -1rem;
+}
+
+.accordion-button:not(.collapsed) {
+    color: #ef4749;
+}
+
+
+/* Deals of the day ***************/
+ .timer-grid {
+	overflow: hidden;
+	display: inline-block;
+}
+.timer-grid .box-time-date {
+	background: #fff;
+	font-size: 10px;
+	color: #999;
+	min-width: 100px;
+	min-height: 100px;
+	text-align: center;
+	margin-top: 30px;
+	font-weight: 700;
+	text-transform: uppercase;
+	display: inline-block;
+	margin-left: 10px;
+	margin-right: 10px;
+	padding-top: 20px;
+	font-family: 'PT Sans', sans-serif;
+	font-weight: normal;
+}
+.timer-grid .day.box-time-date {
+	background: #000;
+	border-color: #000 !important
+}
+.timer-grid .day.box-time-date span {
+	color: #fff
+}
+.timer-grid .day.box-time-date {
+	color: #fff
+}
+.timer-grid .box-time-date span {
+	display: block;
+	font-size: 24px;
+	color: #000;
+	margin-top: 6px;
+}
+.box-timer {
+	text-align: center;
+	margin-top: 0;
+	position: relative;
+	left: 0px;
+	top: 0
+}
+.timer-grid .box-time-date span {
+	display: block;
+	font-size: 20px;
+	color: #f28083;
+	margin-top: 6px;
+}
+
+/* Style for product detail page */
+/* Compatibility styles for frameworks like bootstrap, foundation e.t.c */
+.xzoom-source img, .xzoom-preview img, .xzoom-lens img {
+    display: block;
+    max-width: none;
+    max-height: none;
+    -webkit-transition: none;
+    -moz-transition: none;
+    -o-transition: none;
+    transition: none;
+  }
+  /* --------------- */
+  
+  /* xZoom Styles below */
+  .xzoom-container { 
+    display: inline-block;
+  }
+  
+  .xzoom-thumbs {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .xzoom { 
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);  
+  }
+  .xzoom2, .xzoom3, .xzoom4, .xzoom5 {
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+  }
+  
+  /* Thumbs */
+  .xzoom-gallery, .xzoom-gallery2, .xzoom-gallery3, .xzoom-gallery4, .xzoom-gallery5 {
+    border: 1px solid #cecece;
+    margin-left: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .xzoom-source, .xzoom-hidden {
+    display: block;
+    position: static;
+    float: none;
+    clear: both;
+  }
+  
+  /* Everything out of border is hidden */
+  .xzoom-hidden {
+    overflow: hidden;
+  }
+  
+  /* Preview */
+  .xzoom-preview {
+    border: 1px solid #888;
+    background: #2f4f4f;
+    box-shadow: -0px -0px 10px rgba(0,0,0,0.50);
+  }
+  
+  /* Lens */
+  .xzoom-lens {
+    border: 1px solid #555;
+    box-shadow: -0px -0px 10px rgba(0,0,0,0.50);
+    cursor: crosshair;
+  }
+  
+  /* Loading */
+  .xzoom-loading {
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-radius: 100%;
+    opacity: .7;
+    background: url(../images/xloading.gif);
+    width: 48px;
+    height: 48px;
+  }
+  
+  /* Additional class that applied to thumb when it is active */
+  .xactive {
+    -webkit-box-shadow: 0px 0px 3px 0px rgba(74,169,210,1);
+    -moz-box-shadow: 0px 0px 3px 0px rgba(74,169,210,1);
+    box-shadow: 0px 0px 3px 0px rgba(74,169,210,1); 
+    border: 1px solid #4aaad2;
+  }
+  
+  /* Caption */
+  .xzoom-caption {
+    position: absolute;
+    bottom: -43px;
+    left: 0;
+    background: #000;
+    width: 100%;
+    text-align: left;
+  }
+  
+  .xzoom-caption span {
+    color: #fff;
+    font-family: Arial, sans-serif;
+    display: block;
+    font-size: 0.75em;
+    font-weight: bold;
+    padding: 10px;
+  }
