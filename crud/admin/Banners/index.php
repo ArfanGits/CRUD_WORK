@@ -1,7 +1,5 @@
 <?php
 
-// echo $_SERVER['DOCUMENT_ROOT']."/crud";
-
 include_once($_SERVER['DOCUMENT_ROOT']."/batch1-arfan/crud/config.php");
 
 use Bitm\Banner;
@@ -10,9 +8,6 @@ $_banner = new Banner();
 
 $banners = $_banner->index();
 
-/*echo "<pre>";
-print_r($products);
-echo "</pre>";*/
 ?>
 
 <!doctype html>
