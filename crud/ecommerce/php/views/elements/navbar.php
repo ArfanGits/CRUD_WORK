@@ -1,9 +1,7 @@
-<?php
-?>
-
-<!--Markup for Header-->
+<?php?>
 <header>
     <div id="top-header">
+
     </div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">

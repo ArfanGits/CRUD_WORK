@@ -1,7 +1,5 @@
 <?php
 ?>
-
-
 <!--Markup for BEST SELLERS-->
 <section id="best-sellers" class="mt-2">
     <div class="container">

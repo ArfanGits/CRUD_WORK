@@ -1,7 +1,6 @@
 <?php
 ?>
 
-
 <section id="wrapper" class="mt-5">
     <div class="container">
         <div class="row">
@@ -88,7 +87,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
             <div class="col-md-9">
                 <?php
