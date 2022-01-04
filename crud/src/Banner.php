@@ -12,7 +12,6 @@ class Banner{
 
     public function __construct()
     {
-        session_start();
         //Connect to database
         $this->conn = new PDO("mysql:host=localhost;dbname=ecommerce",
             'root', '');
@@ -24,6 +23,21 @@ class Banner{
     public function index(){
 
         $query = "SELECT * FROM `banner`";
+
+        $stmt = $this->conn->prepare($query);
+
+        $result = $stmt->execute();
+
+        $banners = $stmt->fetchAll();
+
+        return $banners;
+    }
+
+    public function getActiveBanners(){
+
+        $_startFrom = 0;
+        $_total = 3;
+        $query = "SELECT * FROM `banner` WHERE is_active = 1 LIMIT $_startFrom, $_total";
 
         $stmt = $this->conn->prepare($query);
 

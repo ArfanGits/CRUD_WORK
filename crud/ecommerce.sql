@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 03, 2022 at 06:58 PM
--- Server version: 5.7.33
--- PHP Version: 7.4.19
+-- Generation Time: Jan 04, 2022 at 05:22 PM
+-- Server version: 5.7.24
+-- PHP Version: 7.2.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -73,16 +73,15 @@ CREATE TABLE `banner` (
 --
 
 INSERT INTO `banner` (`id`, `title`, `link`, `promotional_message`, `html_banner`, `is_draft`, `picture`, `created_at`, `modified_at`, `is_active`) VALUES
-(14, 'sfs', 'sef', 'fgf', '', 0, 'custom-img4.jpg', '2021-12-20 10:54:42', '2021-12-20 10:54:42', 0),
-(16, 'uyyi', 'uy.com', 'Editing Done', '', 0, 'custom-img2.jpg', '2021-12-20 10:54:42', '2021-12-20 10:54:42', 0),
+(14, 'sfs', 'sef', 'fgf', '', 0, 'custom-img4.jpg', '2021-12-20 10:54:42', '2022-01-04 04:56:40', 1),
+(16, 'uyyi', 'uy.com', 'Editing Done', '', 0, 'custom-img2.jpg', '2021-12-20 10:54:42', '2022-01-04 04:56:49', 1),
 (17, 'new', 's.ocm', 'jjja', '', 0, 'menu-shoes.png', '2021-12-20 10:54:42', '2021-12-20 10:54:42', 0),
 (18, 'Title changed', 'new.com', 'image changed', '', 0, 'product1-700x850.jpg', '2021-12-20 10:54:42', '2021-12-20 10:54:42', 0),
 (19, 'Isti GG', 'istisqr.com', 'hdhhdhd', '', 0, 'custom-img1.jpg', '2021-12-20 10:54:42', '2021-12-20 10:54:42', 0),
 (20, 'test1', 'dsgfadf', 'fef', '', 0, 'custom-img3.jpg', '2021-12-20 11:00:34', '2021-12-20 12:51:09', 1),
 (21, 'jhjhjh', 'dsfgf.com', 'Editing Donebbvbvcbb', '', 0, 'list.svg', '2021-12-20 12:11:19', '2021-12-20 12:11:47', 0),
-(24, 'name changed', 'new.com', 'something', 'somesome', 0, NULL, '2022-01-02 10:54:44', '2022-01-02 10:55:08', 1),
 (25, 'title changed', 'hshh', 'hsfh1', 'lkfdjgo', 0, NULL, '2022-01-02 11:02:13', '2022-01-02 11:02:28', 0),
-(26, 'a', 'sarfan.com', 'Editing Done', 'hdhdhhd', 0, NULL, '2022-01-02 11:08:09', '2022-01-02 11:08:17', 1),
+(26, 'a', 'sarfan.com', 'Editing Done', 'hdhdhhd', 0, NULL, '2022-01-02 11:08:09', '2022-01-04 04:56:20', 0),
 (27, 'Bitm PHP', 'sarfan.com', 'sum sum', 'new html', 0, 'IMG_1641100571_blog-img2-913x500.jpg', '2022-01-02 11:16:11', '2022-01-03 11:51:37', 1);
 
 -- --------------------------------------------------------
