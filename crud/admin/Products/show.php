@@ -8,10 +8,6 @@ $_product = new Product();
 
 $product = $_product->show();
 
-/*echo "<pre>";
-print_r($product);
-echo "</pre>";*/
-
 ?>
 
 
