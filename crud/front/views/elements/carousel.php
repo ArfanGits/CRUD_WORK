@@ -1,9 +1,7 @@
 <?php
 
 use Bitm\Banner;
-
 $_banner = new Banner();
-
 $banners = $_banner->getActiveBanners();
 
 // var_dump($banners);
