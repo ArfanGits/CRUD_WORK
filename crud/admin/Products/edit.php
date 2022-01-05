@@ -42,7 +42,7 @@ echo "</pre>";*/
                         </div>
                     </div>
                     <div class="mb-3 row">
-                        <label for="inputTitle" class="col-md-3 col-form-label">Title</label>
+                        <label for="inputTitle" class="col-md-3 col-form-label">Title:</label>
                         <div class="col-md-9">
                             <input
                                 type="text"
@@ -50,6 +50,18 @@ echo "</pre>";*/
                                 id="inputTitle"
                                 name="title"
                                 value="<?=$product['title']?>"
+                            >
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="inputPrice" class="col-md-3 col-form-label">Price:</label>
+                        <div class="col-md-9">
+                            <input
+                                type="number"
+                                class="form-control"
+                                id="inputPrice"
+                                name="price"
+                                value="<?=$product['price']?>"
                             >
                         </div>
                     </div>

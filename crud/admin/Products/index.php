@@ -3,15 +3,8 @@
 include_once($_SERVER['DOCUMENT_ROOT']."/batch1-arfan/crud/config.php");
 
 use Bitm\Product;
-
 $_product = new Product();
-
 $products = $_product->index();
-//var_dump($products);
-
-/*echo "<pre>";
-print_r($products);
-echo "</pre>";*/
 
 ?>
 
