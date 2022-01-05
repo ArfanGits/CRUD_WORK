@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 04, 2022 at 05:22 PM
+-- Generation Time: Jan 05, 2022 at 12:08 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.2.19
 
@@ -196,6 +196,7 @@ INSERT INTO `orders` (`id`, `product_id`, `qty`) VALUES
 CREATE TABLE `product` (
   `id` int(11) NOT NULL,
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `price` int(10) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `modified_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `is_deleted` tinyint(4) NOT NULL DEFAULT '0',
@@ -207,14 +208,14 @@ CREATE TABLE `product` (
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`id`, `title`, `created_at`, `modified_at`, `is_deleted`, `picture`, `is_active`) VALUES
-(31, 'Test2', '2021-12-20 09:49:49', '2021-12-20 10:11:31', 0, 'payment-2.png', 0),
-(32, 'TestApproot', '2021-12-20 09:49:49', '2021-12-20 10:11:31', 0, 'custom-img4.jpg', 0),
-(33, 'lamp', '2021-12-20 09:49:49', '2021-12-20 10:11:31', 0, 'product5-700x850.jpg', 0),
-(35, 'Istiaq GG', '2021-12-20 09:49:49', '2021-12-20 10:11:31', 0, 'product24-700x850.jpg', 1),
-(39, 'Testing update edited file', '2021-12-30 12:22:47', '2021-12-30 12:29:46', 0, 'custom-img4.jpg', 0),
-(43, 'item5', '2021-12-30 12:45:25', '2021-12-30 12:45:35', 0, 'custom-img1.jpg', 0),
-(44, 'Edited Chair', '2022-01-02 04:05:44', '2022-01-02 04:06:58', 0, 'IMG_1641118018_product15-700x850.jpg', 1);
+INSERT INTO `product` (`id`, `title`, `price`, `created_at`, `modified_at`, `is_deleted`, `picture`, `is_active`) VALUES
+(31, 'Test2', 0, '2021-12-20 09:49:49', '2021-12-20 10:11:31', 0, 'payment-2.png', 0),
+(32, 'TestApproot', 0, '2021-12-20 09:49:49', '2021-12-20 10:11:31', 0, 'custom-img4.jpg', 0),
+(33, 'lamp', 0, '2021-12-20 09:49:49', '2021-12-20 10:11:31', 0, 'product5-700x850.jpg', 0),
+(35, 'Grandpa Rocking Chair', 3500, '2021-12-20 09:49:49', '2022-01-05 10:51:13', 0, 'IMG_1641356865_product12-700x850.jpg', 1),
+(39, 'NITRAA LYDON DINING TABLE...', 2500, '2021-12-30 12:22:47', '2022-01-05 10:55:52', 0, 'IMG_1641357288_product5-700x850.jpg', 1),
+(43, 'TABLE LAMP IN STEAM BEACH...', 9000, '2021-12-30 12:45:25', '2022-01-05 10:51:46', 0, 'IMG_1641356892_product24-700x850.jpg', 1),
+(44, 'DECORNATION FLOATING WALL...', 450, '2022-01-02 04:05:44', '2022-01-05 10:52:33', 0, 'IMG_1641357200_product6-700x850.jpg', 1);
 
 --
 -- Indexes for dumped tables
