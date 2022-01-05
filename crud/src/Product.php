@@ -12,7 +12,6 @@ class Product{
 
     public function __construct()
     {
-        session_start();
         //Connect to database
         $this->conn = new PDO("mysql:host=localhost;dbname=ecommerce",
             'root', '');
@@ -24,6 +23,21 @@ class Product{
     public function index(){
         
         $query = "SELECT * FROM `product` WHERE is_deleted = 0";
+        
+        $stmt = $this->conn->prepare($query);
+        
+        $result = $stmt->execute();
+        
+        $products = $stmt->fetchAll();
+
+        return $products;
+    }
+
+    public function getActiveProducts(){
+
+        $_startFrom = 0;
+        $_total = 4;
+        $query = "SELECT * FROM `product` WHERE is_active = 1 LIMIT $_startFrom, $_total";
         
         $stmt = $this->conn->prepare($query);
         
@@ -55,6 +69,7 @@ class Product{
         $_picture = $this->upload();
 
         $_title = $_POST['title'];
+        $_price = $_POST['price'];
         //echo $_title;
 
         if (array_key_exists('is_active', $_POST)) {
@@ -72,11 +87,13 @@ class Product{
         $_created_at = date('Y-m-d h:i:s',time());
 
         $query = "INSERT INTO `product` (`title`,
+                                        `price`,
                                         `created_at`,
                                         `is_deleted`,
                                         `picture`,
                                         `is_active`) 
                 VALUES (:title, 
+                        :price, 
                         :created_at, 
                         :is_deleted, 
                         :picture, 
@@ -84,6 +101,7 @@ class Product{
 
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(':title', $_title);
+        $stmt->bindParam(':price', $_price);
         $stmt->bindParam(':created_at', $_created_at);
         $stmt->bindParam(':is_deleted', $_is_deleted);
         $stmt->bindParam(':picture', $_picture);
@@ -126,6 +144,7 @@ class Product{
 
         $_id = $_POST['id'];
         $_title = $_POST['title'];
+        $_price = $_POST['price'];
         //echo $_title;
 
         if (array_key_exists('is_active', $_POST)) {
@@ -145,6 +164,7 @@ class Product{
         $query = "UPDATE `product` 
                 SET `title` = :title, 
                 `picture` = :picture,
+                `price` = :price,
                 `is_active` = :is_active,
                 `is_deleted` = :is_deleted,
                 `modified_at` = :modified_at 
@@ -153,6 +173,7 @@ class Product{
         $stmt = $this->conn->prepare($query);
 
         $stmt->bindParam(':title', $_title);
+        $stmt->bindParam(':price', $_price);
         $stmt->bindParam(':picture', $_picture);
         $stmt->bindParam(':is_active', $_is_active);
         $stmt->bindParam(':is_deleted', $_is_deleted);
