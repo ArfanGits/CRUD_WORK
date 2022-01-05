@@ -1,8 +1,18 @@
+<?php
+
+include_once($_SERVER['DOCUMENT_ROOT']."/batch1-arfan/crud/config.php");
+
+use Bitm\Product;
+
+$_product = new Product();
+
+$product = $_product->show();
+
+?>
 <!doctype html>
 <html lang="en">
 <?php
 include_once('../views/elements/head.php');
-
 ?>
 
 <body>
@@ -26,7 +36,7 @@ include_once('../views/elements/navbar.php');
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Grandpa Rocking Chair</li>
+                <li class="breadcrumb-item active" aria-current="page"><?=$product['title'];?></li>
             </ol>
         </nav>
     </div>
@@ -54,7 +64,7 @@ include_once('../views/elements/navbar.php');
 
             <div class="col-md-7">
                 <div class="card">
-                    <h3 class="fs-1">GRANDPA ROCKING CHAIR</h3>
+                    <h3 class="fs-1"><?=$product['title'];?></h3>
                     <div class="rating_review">
                         <p class="card-text"><i class="fas fa-star  fa-xs"></i> <i class="fas fa-star fa-xs"></i> <i class="fas fa-star fa-xs"></i> <i class="fas fa-star fa-xs"></i> <i class="fas fa-star fa-xs"></i></p>
                         <p>0 Reviews | Write a review</p>
@@ -62,7 +72,7 @@ include_once('../views/elements/navbar.php');
                     <div class="price">
                         <div class="row mt-3">
                             <div class="col-md-6">
-                            <p class="fs-2">&dollar;100.00</p>
+                            <p class="fs-2">৳<?=$product['price'];?></p>
                             </div>
                             <div class="col-md-6 ">
                             <button type="button" class="btn btn-success">In Stock</button>
