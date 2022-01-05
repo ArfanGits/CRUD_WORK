@@ -26,9 +26,9 @@ $products = $_product->getActiveProducts();
                 ?>
             <div class="col <?=$_active;?>">
                 <div class="card">
-                    <a href="product-detail.php"><img src="<?=$webroot;?>uploads/<?=$product['picture']?>" class="card-img-top" alt="BEST SELLERS Image" title="Grandpa Rocking Chair"></a>
+                    <a href="product-detail.php?id=<?=$product['id'];?>"><img src="<?=$webroot;?>uploads/<?=$product['picture']?>" class="card-img-top" alt="BEST SELLERS Image" title="Grandpa Rocking Chair"></a>
                     <div class="card-body">
-                        <h5 style="text-transform: uppercase;" class="card-title" title="Grandpa Rocking Chair"> <a href="product-detail.php"><?=$product['title'];?></a></h5>
+                        <h5 style="text-transform: uppercase;" class="card-title" title="Grandpa Rocking Chair"> <a href="product-detail.php?id=<?=$product['id'];?>"> <?=$product['title'];?></a></h5>
                         <p class="card-text"><i class="fas fa-star  fa-xs"></i> <i class="fas fa-star fa-xs"></i> <i class="fas fa-star fa-xs"></i> <i class="fas fa-star fa-xs"></i> <i class="fas fa-star fa-xs"></i></p>
                         <p>৳<?=$product['price']?></p>
                         <p><button type="button" class="btn btn-danger">Add to cart</button></p>
