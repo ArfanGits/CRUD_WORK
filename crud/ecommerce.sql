@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 05, 2022 at 12:08 PM
+-- Generation Time: Jan 06, 2022 at 05:03 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.2.19
 
@@ -82,7 +82,8 @@ INSERT INTO `banner` (`id`, `title`, `link`, `promotional_message`, `html_banner
 (21, 'jhjhjh', 'dsfgf.com', 'Editing Donebbvbvcbb', '', 0, 'list.svg', '2021-12-20 12:11:19', '2021-12-20 12:11:47', 0),
 (25, 'title changed', 'hshh', 'hsfh1', 'lkfdjgo', 0, NULL, '2022-01-02 11:02:13', '2022-01-02 11:02:28', 0),
 (26, 'a', 'sarfan.com', 'Editing Done', 'hdhdhhd', 0, NULL, '2022-01-02 11:08:09', '2022-01-04 04:56:20', 0),
-(27, 'Bitm PHP', 'sarfan.com', 'sum sum', 'new html', 0, 'IMG_1641100571_blog-img2-913x500.jpg', '2022-01-02 11:16:11', '2022-01-03 11:51:37', 1);
+(27, 'Bitm PHP', 'sarfan.com', 'sum sum', 'new html', 0, 'IMG_1641100571_blog-img2-913x500.jpg', '2022-01-02 11:16:11', '2022-01-03 11:51:37', 1),
+(28, 'gg', 'gg', 'gg', 'xd', 1, 'IMG_1641461745_blog-img1-913x500.jpg', '2022-01-06 03:35:45', '2022-01-06 15:35:45', 0);
 
 -- --------------------------------------------------------
 
@@ -217,6 +218,33 @@ INSERT INTO `product` (`id`, `title`, `price`, `created_at`, `modified_at`, `is_
 (43, 'TABLE LAMP IN STEAM BEACH...', 9000, '2021-12-30 12:45:25', '2022-01-05 10:51:46', 0, 'IMG_1641356892_product24-700x850.jpg', 1),
 (44, 'DECORNATION FLOATING WALL...', 450, '2022-01-02 04:05:44', '2022-01-05 10:52:33', 0, 'IMG_1641357200_product6-700x850.jpg', 1);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
+  `full_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `user_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `picture` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `phone_number` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modified_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `is_deleted` tinyint(4) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `full_name`, `user_name`, `email`, `password`, `picture`, `phone_number`, `created_at`, `modified_at`, `is_deleted`) VALUES
+(4, 'istiak sharif isti', 'Isti Bong chong', 'isti@gmail.com', '456123', 'IMG_1641465116_image2.jpg', '01561565641', '2022-01-06 16:31:56', '2022-01-06 04:31:56', 0),
+(7, 'gg', 'gg', 'XD@gmail.com', '456123', 'IMG_1641467016_image1.jpg', '01514564556', '2022-01-06 05:03:36', '2022-01-06 17:03:36', 0);
+
 --
 -- Indexes for dumped tables
 --
@@ -264,6 +292,12 @@ ALTER TABLE `product`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -277,7 +311,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `banner`
 --
 ALTER TABLE `banner`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `cart`
@@ -308,6 +342,12 @@ ALTER TABLE `orders`
 --
 ALTER TABLE `product`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
