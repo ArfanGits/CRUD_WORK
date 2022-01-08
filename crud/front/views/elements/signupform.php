@@ -1,10 +1,12 @@
-<?php?>
+<?php
+
+?>
 <section>
 		<div class="container row" >
 			<div class="col-md-10">
 				<div class="head .pl-1"style="border-bottom: 1px black solid;">
 					<h3>REGISTER ACCOUNT</h3>
-					<p>if you already have an account with us please logi at the login page</p>
+					<p>if you already have an account with us please login at the login page</p>
 					<h3>YOUR PERSONAL DETAILS</h3>
 				</div>
 				<div class="mb-3 mt-3 row">
