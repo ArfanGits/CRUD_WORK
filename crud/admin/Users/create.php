@@ -1,6 +1,7 @@
 <?php
 
 include_once($_SERVER['DOCUMENT_ROOT']."/batch1-arfan/crud/config.php");
+include_once($_SERVER['DOCUMENT_ROOT']."/batch1-arfan/crud/authenticator.php");
 
 ?>
 
