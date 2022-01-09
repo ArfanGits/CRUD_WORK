@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 06, 2022 at 05:03 PM
--- Server version: 5.7.24
--- PHP Version: 7.2.19
+-- Generation Time: Jan 09, 2022 at 07:07 AM
+-- Server version: 5.7.33
+-- PHP Version: 7.4.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -243,7 +243,11 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `full_name`, `user_name`, `email`, `password`, `picture`, `phone_number`, `created_at`, `modified_at`, `is_deleted`) VALUES
 (4, 'istiak sharif isti', 'Isti Bong chong', 'isti@gmail.com', '456123', 'IMG_1641465116_image2.jpg', '01561565641', '2022-01-06 16:31:56', '2022-01-06 04:31:56', 0),
-(7, 'gg', 'gg', 'XD@gmail.com', '456123', 'IMG_1641467016_image1.jpg', '01514564556', '2022-01-06 05:03:36', '2022-01-06 17:03:36', 0);
+(7, 'gg', 'gg', 'XD@gmail.com', '456123', 'IMG_1641467016_image1.jpg', '01514564556', '2022-01-06 05:03:36', '2022-01-06 17:03:36', 0),
+(8, 'gggggg', 'ggggggggg', 'ryan8@yahoo.com', 'gggggg', 'IMG_1641704103_blog-img1-913x500.jpg', '55555555555', '2022-01-09 04:55:03', '2022-01-09 10:55:03', 0),
+(9, 'ffffff', 'ffffffff', 'ryan8@yahoo.com', 'ffffffffff', 'IMG_1641704262_blog-img1-913x500.jpg', '555555555555', '2022-01-09 04:57:42', '2022-01-09 10:57:42', 0),
+(10, 'Istiak', 'Istiak60', 'isti840@gmail.com', '123456', 'IMG_1641707264_menu-shoes.png', '0154954615', '2022-01-09 05:47:44', '2022-01-09 11:47:44', 0),
+(11, 'Arfan A Khan', 'arfan07', 'alpha07@gmail.com', '123456', 'IMG_1641710963_newsletter-img.jpg', '123456', '2022-01-09 06:49:23', '2022-01-09 12:49:23', 0);
 
 --
 -- Indexes for dumped tables
@@ -347,7 +351,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
