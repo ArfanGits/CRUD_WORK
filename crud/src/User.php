@@ -248,6 +248,80 @@ class User{
         
         return $_picture;
     }
+
+    public function signup_form_store($data){
+
+        $_picture = $this->upload();
+        $_full_name = $data['full_name'];
+        $_user_name = $data['user_name'];
+        $_email = $data['email'];
+        $_password = $data['password'];
+        $_phone_number = $data['phone_number'];
+
+        $_created_at = date('Y-m-d h:i:s',time());
+        
+        $query = "INSERT INTO `user` (`full_name`, 
+                                        `user_name`,
+                                        `email`,
+                                        `password`,
+                                        `picture`,
+                                        `phone_number`,
+                                        `created_at`
+                                        ) 
+                VALUES (:full_name, 
+                        :user_name, 
+                        :email, 
+                        :password, 
+                        :picture, 
+                        :phone_number, 
+                        :created_at
+                        );";
+
+        $stmt = $this->conn->prepare($query);
+
+        $result = $stmt->execute(array(
+            ':full_name' => $_full_name,
+            ':user_name' => $_user_name,
+            ':email' => $_email,
+            ':password' => $_password,
+            ':picture' => $_picture,
+            ':phone_number' => $_phone_number,
+            ':created_at' => $_created_at
+        ));
+
+        //$result = $stmt->execute();
+
+        //var_dump($result);
+
+
+        if ($result){
+            $_SESSION['message'] = "User is added successfully";
+        }else{
+            $_SESSION['message'] = "User is not added";
+        }
+
+        // this is for the location set to store.php to main home page index.php
+        header("location:http://localhost/batch1-arfan/crud/front/public/login.php");
+
+        return $result;
+    }
+
+    public function login($user_name, $password){
+            $query = "SELECT COUNT(*) AS total FROM `user` WHERE user_name LIKE :user_name AND password LIKE :password;";
+
+            $stmt = $this->conn->prepare($query);
+            $stmt->bindParam(':user_name', $user_name);
+            $stmt->bindParam(':password', $password);
+            $result = $stmt->execute();
+            $totalfound = $stmt->fetch();
+            if($totalfound['total'] > 0){
+                $_SESSION['is_authenticated']=true;
+                header("location:http://localhost/batch1-arfan/crud/front/public/index.php");
+            }else{
+                $_SESSION['is_authenticated']=false;
+                header("location:http://localhost/batch1-arfan/crud/404.php");
+            }
+    }
 }
 
 ?>
