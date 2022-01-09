@@ -1,3 +1,6 @@
+<?php
+include_once($_SERVER['DOCUMENT_ROOT']."/batch1-arfan/crud/config.php");
+?>
 <!doctype html>
 <html lang="en">
 <?php
@@ -16,8 +19,9 @@ include_once('../views/elements/head.php');
    include_once('../views/elements/loginform.php');
    include_once('../views/elements/footer.php');
    
- 
  ?>
+</body>
+</html>
 
 
 
