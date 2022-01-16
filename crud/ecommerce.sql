@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 09, 2022 at 07:07 AM
+-- Generation Time: Jan 16, 2022 at 06:09 AM
 -- Server version: 5.7.33
 -- PHP Version: 7.4.19
 
@@ -215,7 +215,7 @@ INSERT INTO `product` (`id`, `title`, `price`, `created_at`, `modified_at`, `is_
 (33, 'lamp', 0, '2021-12-20 09:49:49', '2021-12-20 10:11:31', 0, 'product5-700x850.jpg', 0),
 (35, 'Grandpa Rocking Chair', 3500, '2021-12-20 09:49:49', '2022-01-05 10:51:13', 0, 'IMG_1641356865_product12-700x850.jpg', 1),
 (39, 'NITRAA LYDON DINING TABLE...', 2500, '2021-12-30 12:22:47', '2022-01-05 10:55:52', 0, 'IMG_1641357288_product5-700x850.jpg', 1),
-(43, 'TABLE LAMP IN STEAM BEACH...', 9000, '2021-12-30 12:45:25', '2022-01-05 10:51:46', 0, 'IMG_1641356892_product24-700x850.jpg', 1),
+(43, 'TABLE LAMP IN STEAM BEACH...', 1000, '2021-12-30 12:45:25', '2022-01-16 04:04:45', 0, 'IMG_1641356892_product24-700x850.jpg', 1),
 (44, 'DECORNATION FLOATING WALL...', 450, '2022-01-02 04:05:44', '2022-01-05 10:52:33', 0, 'IMG_1641357200_product6-700x850.jpg', 1);
 
 -- --------------------------------------------------------
@@ -231,7 +231,7 @@ CREATE TABLE `user` (
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `picture` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `phone_number` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `phone_number` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `modified_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `is_deleted` tinyint(4) NOT NULL DEFAULT '0'
@@ -247,7 +247,9 @@ INSERT INTO `user` (`id`, `full_name`, `user_name`, `email`, `password`, `pictur
 (8, 'gggggg', 'ggggggggg', 'ryan8@yahoo.com', 'gggggg', 'IMG_1641704103_blog-img1-913x500.jpg', '55555555555', '2022-01-09 04:55:03', '2022-01-09 10:55:03', 0),
 (9, 'ffffff', 'ffffffff', 'ryan8@yahoo.com', 'ffffffffff', 'IMG_1641704262_blog-img1-913x500.jpg', '555555555555', '2022-01-09 04:57:42', '2022-01-09 10:57:42', 0),
 (10, 'Istiak', 'Istiak60', 'isti840@gmail.com', '123456', 'IMG_1641707264_menu-shoes.png', '0154954615', '2022-01-09 05:47:44', '2022-01-09 11:47:44', 0),
-(11, 'Arfan A Khan', 'arfan07', 'alpha07@gmail.com', '123456', 'IMG_1641710963_newsletter-img.jpg', '123456', '2022-01-09 06:49:23', '2022-01-09 12:49:23', 0);
+(11, 'Arfan A Khan', 'arfan07', 'alpha07@gmail.com', '123456', 'IMG_1641710963_newsletter-img.jpg', '123456', '2022-01-09 06:49:23', '2022-01-09 12:49:23', 0),
+(12, 'same', 'sme', 'v@gmail.com', '123456', NULL, NULL, '2022-01-16 05:06:39', '2022-01-16 11:06:39', 0),
+(13, 'moktar', 'moktar88', '88mhossain@gmail.com', '121212', NULL, NULL, '2022-01-16 05:16:23', '2022-01-16 11:16:23', 0);
 
 --
 -- Indexes for dumped tables
@@ -351,7 +353,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
