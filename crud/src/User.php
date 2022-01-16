@@ -322,6 +322,73 @@ class User{
                 header("location:http://localhost/batch1-arfan/crud/404.php");
             }
     }
+
+
+    public function signup_form_temp($data){
+
+        $_full_name = $data['full_name'];
+        $_user_name = $data['user_name'];
+        $_email = $data['email'];
+        $_password = $data['password'];
+
+        $_created_at = date('Y-m-d h:i:s',time());
+        
+        $query = "INSERT INTO `user` (`full_name`, 
+                                        `user_name`,
+                                        `email`,
+                                        `password`,
+                                        `created_at`
+                                        ) 
+                VALUES (:full_name, 
+                        :user_name, 
+                        :email, 
+                        :password,
+                        :created_at
+                        );";
+
+        $stmt = $this->conn->prepare($query);
+
+        $result = $stmt->execute(array(
+            ':full_name' => $_full_name,
+            ':user_name' => $_user_name,
+            ':email' => $_email,
+            ':password' => $_password,
+            ':created_at' => $_created_at
+        ));
+
+        //$result = $stmt->execute();
+
+        //var_dump($result);
+
+
+        if ($result){
+            $_SESSION['message'] = "User is added successfully";
+        }else{
+            $_SESSION['message'] = "User is not added";
+        }
+
+        // this is for the location set to store.php to main home page index.php
+        header("location:http://localhost/batch1-arfan/crud/tempnew/user-login.php");
+
+        return $result;
+    }
+
+    public function login_temp($email, $password){
+        $query = "SELECT COUNT(*) AS total FROM `user` WHERE email LIKE :email AND password LIKE :password;";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':password', $password);
+        $result = $stmt->execute();
+        $totalfound = $stmt->fetch();
+        if($totalfound['total'] > 0){
+            $_SESSION['is_authenticated']=true;
+            header("location:http://localhost/batch1-arfan/crud/tempnew/index-2.html");
+        }else{
+            $_SESSION['is_authenticated']=false;
+            header("location:http://localhost/batch1-arfan/crud/tempnew/404.php");
+        }
+}
 }
 
 ?>
